@@ -98,11 +98,13 @@ namespace ChargeEm
         }
 
 
+
         // Returns true if the text in the specified TextBox can be successfully parsed as a double. If true, the parsed double value is assigned to the out parameter value.
         bool TryGetDoubleFromTextBox(TextBox someTextBox, out double value)
         {
             return double.TryParse(someTextBox.Text, out value);
         }
+
 
 
         // Calculates the cost per 1K based on the provided risk factor.  The formula for this calculation is provided in the specifications.
@@ -125,7 +127,42 @@ namespace ChargeEm
         // Updates all output fields on the form based on the calculated risk factor and cost per 1K.  This method is called after a successful calculation of the risk factor and cost per 1K.
         void RefreshOutput(double riskFactor, double costPer1K)
         {
-            lblRiskFactor
+            lblRiskFactor.Text = riskFactor.ToString("F2");
+            lblRiskCategory.Text = GetRiskCategoryLabel(riskFactor);
+            lblCostPerThousand.Text = costPer1K.ToString("C2");
+
+            if(TryCalculateInitialAnnualPremium(costPer1K, out double annualPremium) == true)
+                lblTotalAnnualPremium.Text = annualPremium.ToString("C2");            
+            else
+            {
+                lblTotalAnnualPremium.Text = "Invalid Coverage Amount";
+            }
+        }
+
+
+
+        // Returns "Safe" if the riskFactor is positive (>= 0). Returns "Unsafe" otherwise
+        string GetRiskCategoryLabel(double riskFactor)
+        {
+            if(riskFactor >= 0)
+                return "Safe";
+            else
+                return "Unsafe";
+        }
+
+
+
+        // Attempts to calculate the initial (prior to any discounts or fees) annual premium based on the costPer1K and the allotted coverage amount. Returns false if the coverage amount is invalid (e.g., negative or zero), true otherwise. If true, the calculated annual premium is assigned to the out parameter annualPremium.
+        bool TryCalculateInitialAnnualPremium(double costPer1K, out double annualPremium)
+        {
+            if(TryGetDoubleFromTextBox(txtCoverageAmount, out double coverageAmount) == false || coverageAmount <= 0)
+            {
+                annualPremium = 0;
+                return false;
+            }
+
+            annualPremium = (coverageAmount / 1000d) * costPer1K; // note that the coverage amount is divided by 1000 to convert it to units of 1K
+            return true;
         }
     }
 }
