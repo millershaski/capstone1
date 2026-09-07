@@ -8,19 +8,17 @@ namespace ChargeEm
         }
 
 
-        void GenerateQuoteButton_Click(object? sender, EventArgs e)
+        private void btnGenerateQuote_Click(object? sender, EventArgs e)
         {
         }
 
 
-
-        void ClearButton_Click(object? sender, EventArgs e)
+        private void btnClear_Click(object? sender, EventArgs e)
         {
         }
 
 
-
-        void ExitButton_Click(object? sender, EventArgs e)
+        private void btnExit_Click(object? sender, EventArgs e)
         {
         }
     }
