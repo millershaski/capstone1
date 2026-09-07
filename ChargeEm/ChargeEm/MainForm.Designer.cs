@@ -104,11 +104,9 @@ namespace ChargeEm
             pnlFooter = new Panel();
             pnlFooterDivider = new Panel();
             lblFooterHint = new Label();
-            btnExit = new Button();
             btnClear = new Button();
             btnGenerateQuote = new Button();
             ctlInputErrorProvider = new ErrorProvider(components);
-            ((System.ComponentModel.ISupportInitialize)ctlInputErrorProvider).BeginInit();
             pnlRootLayout.SuspendLayout();
             pnlHeader.SuspendLayout();
             pnlBody.SuspendLayout();
@@ -127,614 +125,591 @@ namespace ChargeEm
             pnlQuoteAmountsLayout.SuspendLayout();
             pnlTotal.SuspendLayout();
             pnlFooter.SuspendLayout();
-            pnlFooterDivider.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ctlInputErrorProvider).BeginInit();
             SuspendLayout();
-            //
+            // 
             // pnlRootLayout
-            //
+            // 
             pnlRootLayout.ColumnCount = 1;
-            pnlRootLayout.RowCount = 3;
-            pnlRootLayout.Dock = DockStyle.Fill;
-            pnlRootLayout.Margin = new Padding(0);
-            pnlRootLayout.Location = new Point(0, 0);
-            pnlRootLayout.Size = new Size(1120, 800);
-            pnlRootLayout.TabIndex = 0;
             pnlRootLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            pnlRootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 82F));
-            pnlRootLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlRootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 74F));
-            pnlRootLayout.Name = "pnlRootLayout";
             pnlRootLayout.Controls.Add(pnlHeader, 0, 0);
             pnlRootLayout.Controls.Add(pnlBody, 0, 1);
             pnlRootLayout.Controls.Add(pnlFooter, 0, 2);
-            //
+            pnlRootLayout.Dock = DockStyle.Fill;
+            pnlRootLayout.Location = new Point(0, 0);
+            pnlRootLayout.Margin = new Padding(0);
+            pnlRootLayout.Name = "pnlRootLayout";
+            pnlRootLayout.RowCount = 3;
+            pnlRootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 82F));
+            pnlRootLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlRootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 74F));
+            pnlRootLayout.Size = new Size(1120, 800);
+            pnlRootLayout.TabIndex = 0;
+            // 
             // pnlHeader
-            //
-            pnlHeader.Dock = DockStyle.Fill;
-            pnlHeader.Margin = new Padding(0);
+            // 
             pnlHeader.BackColor = Color.FromArgb(23, 45, 68);
-            pnlHeader.Size = new Size(1120, 82);
-            pnlHeader.TabIndex = 0;
-            pnlHeader.Name = "pnlHeader";
             pnlHeader.Controls.Add(lblCompanyName);
             pnlHeader.Controls.Add(lblCompanySubtitle);
             pnlHeader.Controls.Add(lblPageTitle);
-            //
+            pnlHeader.Dock = DockStyle.Fill;
+            pnlHeader.Location = new Point(0, 0);
+            pnlHeader.Margin = new Padding(0);
+            pnlHeader.Name = "pnlHeader";
+            pnlHeader.Size = new Size(1120, 82);
+            pnlHeader.TabIndex = 0;
+            // 
             // lblCompanyName
-            //
-            lblCompanyName.AutoSize = false;
-            lblCompanyName.Font = new Font("Segoe UI", 22F, FontStyle.Bold, GraphicsUnit.Point);
+            // 
+            lblCompanyName.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblCompanyName.ForeColor = Color.White;
             lblCompanyName.Location = new Point(24, 9);
+            lblCompanyName.Name = "lblCompanyName";
             lblCompanyName.Size = new Size(360, 38);
+            lblCompanyName.TabIndex = 0;
             lblCompanyName.Text = "ChargEm";
             lblCompanyName.TextAlign = ContentAlignment.MiddleLeft;
-            lblCompanyName.TabStop = false;
-            lblCompanyName.Name = "lblCompanyName";
-            //
+            // 
             // lblCompanySubtitle
-            //
-            lblCompanySubtitle.AutoSize = false;
-            lblCompanySubtitle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblCompanySubtitle.Font = new Font("Segoe UI", 9F);
             lblCompanySubtitle.ForeColor = Color.FromArgb(214, 228, 240);
             lblCompanySubtitle.Location = new Point(27, 48);
+            lblCompanySubtitle.Name = "lblCompanySubtitle";
             lblCompanySubtitle.Size = new Size(360, 20);
+            lblCompanySubtitle.TabIndex = 1;
             lblCompanySubtitle.Text = "Life Insurance Company";
             lblCompanySubtitle.TextAlign = ContentAlignment.MiddleLeft;
-            lblCompanySubtitle.TabStop = false;
-            lblCompanySubtitle.Name = "lblCompanySubtitle";
-            //
+            // 
             // lblPageTitle
-            //
-            lblPageTitle.AutoSize = false;
-            lblPageTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            // 
+            lblPageTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblPageTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblPageTitle.ForeColor = Color.FromArgb(214, 228, 240);
             lblPageTitle.Location = new Point(770, 26);
+            lblPageTitle.Name = "lblPageTitle";
             lblPageTitle.Size = new Size(326, 26);
+            lblPageTitle.TabIndex = 2;
             lblPageTitle.Text = "Annual policy quotation";
             lblPageTitle.TextAlign = ContentAlignment.MiddleRight;
-            lblPageTitle.TabStop = false;
-            lblPageTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblPageTitle.Name = "lblPageTitle";
-            //
+            // 
             // pnlBody
-            //
-            pnlBody.Dock = DockStyle.Fill;
-            pnlBody.Margin = new Padding(0);
-            pnlBody.BackColor = Color.FromArgb(243, 245, 248);
+            // 
             pnlBody.AutoScroll = true;
             pnlBody.AutoScrollMinSize = new Size(1032, 636);
+            pnlBody.BackColor = Color.FromArgb(243, 245, 248);
+            pnlBody.Controls.Add(pnlContentLayout);
+            pnlBody.Dock = DockStyle.Fill;
+            pnlBody.Location = new Point(0, 82);
+            pnlBody.Margin = new Padding(0);
+            pnlBody.Name = "pnlBody";
             pnlBody.Padding = new Padding(0, 0, 0, 20);
             pnlBody.Size = new Size(1120, 644);
             pnlBody.TabIndex = 1;
-            pnlBody.Name = "pnlBody";
-            pnlBody.Controls.Add(pnlContentLayout);
-            //
+            // 
             // pnlContentLayout
-            //
+            // 
             pnlContentLayout.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pnlContentLayout.Location = new Point(24, 20);
-            pnlContentLayout.Size = new Size(1072, 596);
-            pnlContentLayout.MinimumSize = new Size(984, 596);
-            pnlContentLayout.Margin = new Padding(0);
             pnlContentLayout.ColumnCount = 3;
-            pnlContentLayout.RowCount = 1;
-            pnlContentLayout.TabIndex = 0;
             pnlContentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54F));
             pnlContentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             pnlContentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46F));
-            pnlContentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlContentLayout.Name = "pnlContentLayout";
             pnlContentLayout.Controls.Add(pnlInputLayout, 0, 0);
             pnlContentLayout.Controls.Add(pnlQuote, 2, 0);
-            //
+            pnlContentLayout.Location = new Point(24, 20);
+            pnlContentLayout.Margin = new Padding(0);
+            pnlContentLayout.MinimumSize = new Size(984, 596);
+            pnlContentLayout.Name = "pnlContentLayout";
+            pnlContentLayout.RowCount = 1;
+            pnlContentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlContentLayout.Size = new Size(1072, 596);
+            pnlContentLayout.TabIndex = 0;
+            // 
             // pnlInputLayout
-            //
-            pnlInputLayout.Dock = DockStyle.Fill;
-            pnlInputLayout.Margin = new Padding(0);
-            pnlInputLayout.Size = new Size(568, 596);
+            // 
             pnlInputLayout.ColumnCount = 1;
-            pnlInputLayout.RowCount = 3;
-            pnlInputLayout.TabIndex = 0;
             pnlInputLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            pnlInputLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 244F));
-            pnlInputLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 268F));
-            pnlInputLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlInputLayout.Name = "pnlInputLayout";
             pnlInputLayout.Controls.Add(pnlCustomer, 0, 0);
             pnlInputLayout.Controls.Add(pnlCoverage, 0, 1);
             pnlInputLayout.Controls.Add(pnlValidation, 0, 2);
-            //
+            pnlInputLayout.Dock = DockStyle.Fill;
+            pnlInputLayout.Location = new Point(0, 0);
+            pnlInputLayout.Margin = new Padding(0);
+            pnlInputLayout.Name = "pnlInputLayout";
+            pnlInputLayout.RowCount = 3;
+            pnlInputLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 244F));
+            pnlInputLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 268F));
+            pnlInputLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlInputLayout.Size = new Size(568, 596);
+            pnlInputLayout.TabIndex = 0;
+            // 
             // pnlCustomer
-            //
-            pnlCustomer.Dock = DockStyle.Fill;
-            pnlCustomer.Margin = new Padding(0, 0, 0, 16);
+            // 
             pnlCustomer.BackColor = Color.White;
             pnlCustomer.BorderStyle = BorderStyle.FixedSingle;
-            pnlCustomer.Size = new Size(568, 228);
-            pnlCustomer.TabIndex = 0;
-            pnlCustomer.Name = "pnlCustomer";
             pnlCustomer.Controls.Add(lblCustomerSection);
             pnlCustomer.Controls.Add(lblCustomerHint);
             pnlCustomer.Controls.Add(pnlNameLayout);
             pnlCustomer.Controls.Add(pnlMeasurementsLayout);
-            //
+            pnlCustomer.Dock = DockStyle.Fill;
+            pnlCustomer.Location = new Point(0, 0);
+            pnlCustomer.Margin = new Padding(0, 0, 0, 16);
+            pnlCustomer.Name = "pnlCustomer";
+            pnlCustomer.Size = new Size(568, 228);
+            pnlCustomer.TabIndex = 0;
+            // 
             // lblCustomerSection
-            //
-            lblCustomerSection.AutoSize = false;
-            lblCustomerSection.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            // 
+            lblCustomerSection.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblCustomerSection.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             lblCustomerSection.ForeColor = Color.FromArgb(23, 45, 68);
             lblCustomerSection.Location = new Point(22, 16);
+            lblCustomerSection.Name = "lblCustomerSection";
             lblCustomerSection.Size = new Size(522, 28);
+            lblCustomerSection.TabIndex = 0;
             lblCustomerSection.Text = "Customer information";
             lblCustomerSection.TextAlign = ContentAlignment.MiddleLeft;
-            lblCustomerSection.TabStop = false;
-            lblCustomerSection.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblCustomerSection.Name = "lblCustomerSection";
-            //
+            // 
             // lblCustomerHint
-            //
-            lblCustomerHint.AutoSize = false;
-            lblCustomerHint.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblCustomerHint.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblCustomerHint.Font = new Font("Segoe UI", 9F);
             lblCustomerHint.ForeColor = Color.FromArgb(88, 106, 126);
             lblCustomerHint.Location = new Point(22, 48);
+            lblCustomerHint.Name = "lblCustomerHint";
             lblCustomerHint.Size = new Size(522, 20);
+            lblCustomerHint.TabIndex = 1;
             lblCustomerHint.Text = "Enter the customer's name and personal details.";
             lblCustomerHint.TextAlign = ContentAlignment.MiddleLeft;
-            lblCustomerHint.TabStop = false;
-            lblCustomerHint.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblCustomerHint.Name = "lblCustomerHint";
-            //
+            // 
             // pnlNameLayout
-            //
-            pnlNameLayout.Location = new Point(22, 83);
-            pnlNameLayout.Size = new Size(522, 56);
+            // 
             pnlNameLayout.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pnlNameLayout.Margin = new Padding(0);
             pnlNameLayout.ColumnCount = 3;
-            pnlNameLayout.RowCount = 2;
-            pnlNameLayout.TabIndex = 0;
             pnlNameLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             pnlNameLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90F));
             pnlNameLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            pnlNameLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            pnlNameLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlNameLayout.Name = "pnlNameLayout";
             pnlNameLayout.Controls.Add(lblFirstNameCaption, 0, 0);
             pnlNameLayout.Controls.Add(txtFirstName, 0, 1);
             pnlNameLayout.Controls.Add(lblMiddleInitialCaption, 1, 0);
             pnlNameLayout.Controls.Add(txtMiddleInitial, 1, 1);
             pnlNameLayout.Controls.Add(lblLastNameCaption, 2, 0);
             pnlNameLayout.Controls.Add(txtLastName, 2, 1);
-            //
+            pnlNameLayout.Location = new Point(22, 83);
+            pnlNameLayout.Margin = new Padding(0);
+            pnlNameLayout.Name = "pnlNameLayout";
+            pnlNameLayout.RowCount = 2;
+            pnlNameLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            pnlNameLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlNameLayout.Size = new Size(522, 56);
+            pnlNameLayout.TabIndex = 0;
+            // 
             // lblFirstNameCaption
-            //
-            lblFirstNameCaption.AutoSize = false;
-            lblFirstNameCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblFirstNameCaption.Dock = DockStyle.Fill;
+            lblFirstNameCaption.Font = new Font("Segoe UI", 9F);
             lblFirstNameCaption.ForeColor = Color.FromArgb(23, 45, 68);
             lblFirstNameCaption.Location = new Point(0, 0);
-            lblFirstNameCaption.Size = new Size(200, 20);
-            lblFirstNameCaption.Text = "First name";
-            lblFirstNameCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblFirstNameCaption.TabStop = false;
-            lblFirstNameCaption.Dock = DockStyle.Fill;
             lblFirstNameCaption.Margin = new Padding(0);
             lblFirstNameCaption.Name = "lblFirstNameCaption";
-            //
+            lblFirstNameCaption.Size = new Size(216, 22);
+            lblFirstNameCaption.TabIndex = 0;
+            lblFirstNameCaption.Text = "First name";
+            lblFirstNameCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // txtFirstName
-            //
-            txtFirstName.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFirstName.Location = new Point(0, 0);
-            txtFirstName.Size = new Size(200, 27);
-            txtFirstName.PlaceholderText = "First name";
-            txtFirstName.TabIndex = 0;
+            // 
             txtFirstName.AccessibleName = "First name";
             txtFirstName.BorderStyle = BorderStyle.FixedSingle;
             txtFirstName.Dock = DockStyle.Top;
+            txtFirstName.Font = new Font("Segoe UI", 10F);
+            txtFirstName.Location = new Point(0, 24);
             txtFirstName.Margin = new Padding(0, 2, 10, 0);
             txtFirstName.Name = "txtFirstName";
-            //
+            txtFirstName.PlaceholderText = "First name";
+            txtFirstName.Size = new Size(206, 25);
+            txtFirstName.TabIndex = 0;
+            // 
             // lblMiddleInitialCaption
-            //
-            lblMiddleInitialCaption.AutoSize = false;
-            lblMiddleInitialCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblMiddleInitialCaption.ForeColor = Color.FromArgb(23, 45, 68);
-            lblMiddleInitialCaption.Location = new Point(0, 0);
-            lblMiddleInitialCaption.Size = new Size(200, 20);
-            lblMiddleInitialCaption.Text = "Middle initial";
-            lblMiddleInitialCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblMiddleInitialCaption.TabStop = false;
+            // 
             lblMiddleInitialCaption.Dock = DockStyle.Fill;
+            lblMiddleInitialCaption.Font = new Font("Segoe UI", 9F);
+            lblMiddleInitialCaption.ForeColor = Color.FromArgb(23, 45, 68);
+            lblMiddleInitialCaption.Location = new Point(216, 0);
             lblMiddleInitialCaption.Margin = new Padding(0);
             lblMiddleInitialCaption.Name = "lblMiddleInitialCaption";
-            //
+            lblMiddleInitialCaption.Size = new Size(90, 22);
+            lblMiddleInitialCaption.TabIndex = 1;
+            lblMiddleInitialCaption.Text = "Middle initial";
+            lblMiddleInitialCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // txtMiddleInitial
-            //
-            txtMiddleInitial.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMiddleInitial.Location = new Point(0, 0);
-            txtMiddleInitial.Size = new Size(200, 27);
-            txtMiddleInitial.PlaceholderText = "M";
-            txtMiddleInitial.TabIndex = 1;
+            // 
             txtMiddleInitial.AccessibleName = "Middle initial";
             txtMiddleInitial.BorderStyle = BorderStyle.FixedSingle;
             txtMiddleInitial.Dock = DockStyle.Top;
+            txtMiddleInitial.Font = new Font("Segoe UI", 10F);
+            txtMiddleInitial.Location = new Point(216, 24);
             txtMiddleInitial.Margin = new Padding(0, 2, 10, 0);
             txtMiddleInitial.MaxLength = 1;
             txtMiddleInitial.Name = "txtMiddleInitial";
-            //
+            txtMiddleInitial.PlaceholderText = "M";
+            txtMiddleInitial.Size = new Size(80, 25);
+            txtMiddleInitial.TabIndex = 1;
+            // 
             // lblLastNameCaption
-            //
-            lblLastNameCaption.AutoSize = false;
-            lblLastNameCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblLastNameCaption.ForeColor = Color.FromArgb(23, 45, 68);
-            lblLastNameCaption.Location = new Point(0, 0);
-            lblLastNameCaption.Size = new Size(200, 20);
-            lblLastNameCaption.Text = "Last name";
-            lblLastNameCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblLastNameCaption.TabStop = false;
+            // 
             lblLastNameCaption.Dock = DockStyle.Fill;
+            lblLastNameCaption.Font = new Font("Segoe UI", 9F);
+            lblLastNameCaption.ForeColor = Color.FromArgb(23, 45, 68);
+            lblLastNameCaption.Location = new Point(306, 0);
             lblLastNameCaption.Margin = new Padding(0);
             lblLastNameCaption.Name = "lblLastNameCaption";
-            //
+            lblLastNameCaption.Size = new Size(216, 22);
+            lblLastNameCaption.TabIndex = 2;
+            lblLastNameCaption.Text = "Last name";
+            lblLastNameCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // txtLastName
-            //
-            txtLastName.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtLastName.Location = new Point(0, 0);
-            txtLastName.Size = new Size(200, 27);
-            txtLastName.PlaceholderText = "Last name";
-            txtLastName.TabIndex = 2;
+            // 
             txtLastName.AccessibleName = "Last name";
             txtLastName.BorderStyle = BorderStyle.FixedSingle;
             txtLastName.Dock = DockStyle.Top;
+            txtLastName.Font = new Font("Segoe UI", 10F);
+            txtLastName.Location = new Point(306, 24);
             txtLastName.Margin = new Padding(0, 2, 0, 0);
             txtLastName.Name = "txtLastName";
-            //
+            txtLastName.PlaceholderText = "Last name";
+            txtLastName.Size = new Size(216, 25);
+            txtLastName.TabIndex = 2;
+            // 
             // pnlMeasurementsLayout
-            //
-            pnlMeasurementsLayout.Location = new Point(22, 153);
-            pnlMeasurementsLayout.Size = new Size(522, 56);
+            // 
             pnlMeasurementsLayout.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pnlMeasurementsLayout.Margin = new Padding(0);
             pnlMeasurementsLayout.ColumnCount = 3;
-            pnlMeasurementsLayout.RowCount = 2;
-            pnlMeasurementsLayout.TabIndex = 1;
             pnlMeasurementsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
             pnlMeasurementsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
             pnlMeasurementsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
-            pnlMeasurementsLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            pnlMeasurementsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlMeasurementsLayout.Name = "pnlMeasurementsLayout";
             pnlMeasurementsLayout.Controls.Add(lblAgeCaption, 0, 0);
             pnlMeasurementsLayout.Controls.Add(txtAge, 0, 1);
             pnlMeasurementsLayout.Controls.Add(lblHeightCaption, 1, 0);
             pnlMeasurementsLayout.Controls.Add(txtHeight, 1, 1);
             pnlMeasurementsLayout.Controls.Add(lblWeightCaption, 2, 0);
             pnlMeasurementsLayout.Controls.Add(txtWeight, 2, 1);
-            //
+            pnlMeasurementsLayout.Location = new Point(22, 153);
+            pnlMeasurementsLayout.Margin = new Padding(0);
+            pnlMeasurementsLayout.Name = "pnlMeasurementsLayout";
+            pnlMeasurementsLayout.RowCount = 2;
+            pnlMeasurementsLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            pnlMeasurementsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlMeasurementsLayout.Size = new Size(522, 56);
+            pnlMeasurementsLayout.TabIndex = 1;
+            // 
             // lblAgeCaption
-            //
-            lblAgeCaption.AutoSize = false;
-            lblAgeCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblAgeCaption.Dock = DockStyle.Fill;
+            lblAgeCaption.Font = new Font("Segoe UI", 9F);
             lblAgeCaption.ForeColor = Color.FromArgb(23, 45, 68);
             lblAgeCaption.Location = new Point(0, 0);
-            lblAgeCaption.Size = new Size(200, 20);
-            lblAgeCaption.Text = "Age (years)";
-            lblAgeCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblAgeCaption.TabStop = false;
-            lblAgeCaption.Dock = DockStyle.Fill;
             lblAgeCaption.Margin = new Padding(0);
             lblAgeCaption.Name = "lblAgeCaption";
-            //
+            lblAgeCaption.Size = new Size(174, 22);
+            lblAgeCaption.TabIndex = 0;
+            lblAgeCaption.Text = "Age (years)";
+            lblAgeCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // txtAge
-            //
-            txtAge.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtAge.Location = new Point(0, 0);
-            txtAge.Size = new Size(200, 27);
-            txtAge.PlaceholderText = "Years";
-            txtAge.TabIndex = 0;
+            // 
             txtAge.AccessibleName = "Age (years)";
             txtAge.BorderStyle = BorderStyle.FixedSingle;
             txtAge.Dock = DockStyle.Top;
+            txtAge.Font = new Font("Segoe UI", 10F);
+            txtAge.Location = new Point(0, 24);
             txtAge.Margin = new Padding(0, 2, 10, 0);
             txtAge.Name = "txtAge";
-            //
+            txtAge.PlaceholderText = "Years";
+            txtAge.Size = new Size(164, 25);
+            txtAge.TabIndex = 0;
+            // 
             // lblHeightCaption
-            //
-            lblHeightCaption.AutoSize = false;
-            lblHeightCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblHeightCaption.ForeColor = Color.FromArgb(23, 45, 68);
-            lblHeightCaption.Location = new Point(0, 0);
-            lblHeightCaption.Size = new Size(200, 20);
-            lblHeightCaption.Text = "Height (inches)";
-            lblHeightCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblHeightCaption.TabStop = false;
+            // 
             lblHeightCaption.Dock = DockStyle.Fill;
+            lblHeightCaption.Font = new Font("Segoe UI", 9F);
+            lblHeightCaption.ForeColor = Color.FromArgb(23, 45, 68);
+            lblHeightCaption.Location = new Point(174, 0);
             lblHeightCaption.Margin = new Padding(0);
             lblHeightCaption.Name = "lblHeightCaption";
-            //
+            lblHeightCaption.Size = new Size(174, 22);
+            lblHeightCaption.TabIndex = 1;
+            lblHeightCaption.Text = "Height (inches)";
+            lblHeightCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // txtHeight
-            //
-            txtHeight.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHeight.Location = new Point(0, 0);
-            txtHeight.Size = new Size(200, 27);
-            txtHeight.PlaceholderText = "Inches";
-            txtHeight.TabIndex = 1;
+            // 
             txtHeight.AccessibleName = "Height (inches)";
             txtHeight.BorderStyle = BorderStyle.FixedSingle;
             txtHeight.Dock = DockStyle.Top;
+            txtHeight.Font = new Font("Segoe UI", 10F);
+            txtHeight.Location = new Point(174, 24);
             txtHeight.Margin = new Padding(0, 2, 10, 0);
             txtHeight.Name = "txtHeight";
-            //
+            txtHeight.PlaceholderText = "Inches";
+            txtHeight.Size = new Size(164, 25);
+            txtHeight.TabIndex = 1;
+            // 
             // lblWeightCaption
-            //
-            lblWeightCaption.AutoSize = false;
-            lblWeightCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblWeightCaption.ForeColor = Color.FromArgb(23, 45, 68);
-            lblWeightCaption.Location = new Point(0, 0);
-            lblWeightCaption.Size = new Size(200, 20);
-            lblWeightCaption.Text = "Weight (pounds)";
-            lblWeightCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblWeightCaption.TabStop = false;
+            // 
             lblWeightCaption.Dock = DockStyle.Fill;
+            lblWeightCaption.Font = new Font("Segoe UI", 9F);
+            lblWeightCaption.ForeColor = Color.FromArgb(23, 45, 68);
+            lblWeightCaption.Location = new Point(348, 0);
             lblWeightCaption.Margin = new Padding(0);
             lblWeightCaption.Name = "lblWeightCaption";
-            //
+            lblWeightCaption.Size = new Size(174, 22);
+            lblWeightCaption.TabIndex = 2;
+            lblWeightCaption.Text = "Weight (pounds)";
+            lblWeightCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // txtWeight
-            //
-            txtWeight.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtWeight.Location = new Point(0, 0);
-            txtWeight.Size = new Size(200, 27);
-            txtWeight.PlaceholderText = "Pounds";
-            txtWeight.TabIndex = 2;
+            // 
             txtWeight.AccessibleName = "Weight (pounds)";
             txtWeight.BorderStyle = BorderStyle.FixedSingle;
             txtWeight.Dock = DockStyle.Top;
+            txtWeight.Font = new Font("Segoe UI", 10F);
+            txtWeight.Location = new Point(348, 24);
             txtWeight.Margin = new Padding(0, 2, 0, 0);
             txtWeight.Name = "txtWeight";
-            //
+            txtWeight.PlaceholderText = "Pounds";
+            txtWeight.Size = new Size(174, 25);
+            txtWeight.TabIndex = 2;
+            // 
             // pnlCoverage
-            //
-            pnlCoverage.Dock = DockStyle.Fill;
-            pnlCoverage.Margin = new Padding(0, 0, 0, 14);
+            // 
             pnlCoverage.BackColor = Color.White;
             pnlCoverage.BorderStyle = BorderStyle.FixedSingle;
-            pnlCoverage.Size = new Size(568, 254);
-            pnlCoverage.TabIndex = 1;
-            pnlCoverage.Name = "pnlCoverage";
             pnlCoverage.Controls.Add(lblCoverageSection);
             pnlCoverage.Controls.Add(lblCoverageInputCaption);
             pnlCoverage.Controls.Add(txtCoverageAmount);
             pnlCoverage.Controls.Add(pnlDiscountOptions);
             pnlCoverage.Controls.Add(pnlDiscountAmountsLayout);
             pnlCoverage.Controls.Add(lblDiscountHint);
-            //
+            pnlCoverage.Dock = DockStyle.Fill;
+            pnlCoverage.Location = new Point(0, 244);
+            pnlCoverage.Margin = new Padding(0, 0, 0, 14);
+            pnlCoverage.Name = "pnlCoverage";
+            pnlCoverage.Size = new Size(568, 254);
+            pnlCoverage.TabIndex = 1;
+            // 
             // lblCoverageSection
-            //
-            lblCoverageSection.AutoSize = false;
-            lblCoverageSection.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            // 
+            lblCoverageSection.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblCoverageSection.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             lblCoverageSection.ForeColor = Color.FromArgb(23, 45, 68);
             lblCoverageSection.Location = new Point(22, 16);
+            lblCoverageSection.Name = "lblCoverageSection";
             lblCoverageSection.Size = new Size(522, 28);
+            lblCoverageSection.TabIndex = 0;
             lblCoverageSection.Text = "Coverage && discounts";
             lblCoverageSection.TextAlign = ContentAlignment.MiddleLeft;
-            lblCoverageSection.TabStop = false;
-            lblCoverageSection.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblCoverageSection.Name = "lblCoverageSection";
-            //
+            // 
             // lblCoverageInputCaption
-            //
-            lblCoverageInputCaption.AutoSize = false;
-            lblCoverageInputCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblCoverageInputCaption.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblCoverageInputCaption.Font = new Font("Segoe UI", 9F);
             lblCoverageInputCaption.ForeColor = Color.FromArgb(23, 45, 68);
             lblCoverageInputCaption.Location = new Point(22, 54);
+            lblCoverageInputCaption.Name = "lblCoverageInputCaption";
             lblCoverageInputCaption.Size = new Size(522, 20);
+            lblCoverageInputCaption.TabIndex = 1;
             lblCoverageInputCaption.Text = "Coverage amount ($)";
             lblCoverageInputCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblCoverageInputCaption.TabStop = false;
-            lblCoverageInputCaption.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblCoverageInputCaption.Name = "lblCoverageInputCaption";
-            //
+            // 
             // txtCoverageAmount
-            //
-            txtCoverageAmount.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCoverageAmount.Location = new Point(22, 78);
-            txtCoverageAmount.Size = new Size(522, 27);
-            txtCoverageAmount.PlaceholderText = "e.g., 100000";
-            txtCoverageAmount.TabIndex = 0;
+            // 
             txtCoverageAmount.AccessibleName = "Policy coverage amount in dollars";
-            txtCoverageAmount.BorderStyle = BorderStyle.FixedSingle;
             txtCoverageAmount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtCoverageAmount.BorderStyle = BorderStyle.FixedSingle;
+            txtCoverageAmount.Font = new Font("Segoe UI", 10F);
+            txtCoverageAmount.Location = new Point(22, 78);
             txtCoverageAmount.Name = "txtCoverageAmount";
-            //
+            txtCoverageAmount.PlaceholderText = "e.g., 100000";
+            txtCoverageAmount.Size = new Size(522, 25);
+            txtCoverageAmount.TabIndex = 0;
+            // 
             // pnlDiscountOptions
-            //
-            pnlDiscountOptions.Location = new Point(22, 116);
-            pnlDiscountOptions.Size = new Size(522, 30);
-            pnlDiscountOptions.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pnlDiscountOptions.TabIndex = 1;
+            // 
             pnlDiscountOptions.AccessibleName = "Discount type";
-            pnlDiscountOptions.Name = "pnlDiscountOptions";
+            pnlDiscountOptions.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlDiscountOptions.Controls.Add(rdoNoDiscount);
             pnlDiscountOptions.Controls.Add(rdoPercentageDiscount);
             pnlDiscountOptions.Controls.Add(rdoFlatDiscount);
-            //
+            pnlDiscountOptions.Location = new Point(22, 116);
+            pnlDiscountOptions.Name = "pnlDiscountOptions";
+            pnlDiscountOptions.Size = new Size(522, 30);
+            pnlDiscountOptions.TabIndex = 1;
+            // 
             // rdoNoDiscount
-            //
+            // 
             rdoNoDiscount.AutoSize = true;
-            rdoNoDiscount.Location = new Point(0, 4);
-            rdoNoDiscount.Size = new Size(116, 23);
-            rdoNoDiscount.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            rdoNoDiscount.Text = "No discount";
             rdoNoDiscount.Checked = true;
-            rdoNoDiscount.TabStop = true;
-            rdoNoDiscount.TabIndex = 0;
-            rdoNoDiscount.UseVisualStyleBackColor = true;
+            rdoNoDiscount.Font = new Font("Segoe UI", 9.5F);
+            rdoNoDiscount.Location = new Point(0, 4);
             rdoNoDiscount.Name = "rdoNoDiscount";
-            //
+            rdoNoDiscount.Size = new Size(97, 21);
+            rdoNoDiscount.TabIndex = 0;
+            rdoNoDiscount.TabStop = true;
+            rdoNoDiscount.Text = "No discount";
+            rdoNoDiscount.UseVisualStyleBackColor = true;
+            // 
             // rdoPercentageDiscount
-            //
+            // 
             rdoPercentageDiscount.AutoSize = true;
+            rdoPercentageDiscount.Font = new Font("Segoe UI", 9.5F);
             rdoPercentageDiscount.Location = new Point(155, 4);
-            rdoPercentageDiscount.Size = new Size(116, 23);
-            rdoPercentageDiscount.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            rdoPercentageDiscount.Text = "Percentage";
-            rdoPercentageDiscount.Checked = false;
-            rdoPercentageDiscount.TabStop = false;
-            rdoPercentageDiscount.TabIndex = 1;
-            rdoPercentageDiscount.UseVisualStyleBackColor = true;
             rdoPercentageDiscount.Name = "rdoPercentageDiscount";
-            //
+            rdoPercentageDiscount.Size = new Size(91, 21);
+            rdoPercentageDiscount.TabIndex = 1;
+            rdoPercentageDiscount.Text = "Percentage";
+            rdoPercentageDiscount.UseVisualStyleBackColor = true;
+            // 
             // rdoFlatDiscount
-            //
+            // 
             rdoFlatDiscount.AutoSize = true;
+            rdoFlatDiscount.Font = new Font("Segoe UI", 9.5F);
             rdoFlatDiscount.Location = new Point(330, 4);
-            rdoFlatDiscount.Size = new Size(116, 23);
-            rdoFlatDiscount.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            rdoFlatDiscount.Text = "Flat amount";
-            rdoFlatDiscount.Checked = false;
-            rdoFlatDiscount.TabStop = false;
-            rdoFlatDiscount.TabIndex = 2;
-            rdoFlatDiscount.UseVisualStyleBackColor = true;
             rdoFlatDiscount.Name = "rdoFlatDiscount";
-            //
+            rdoFlatDiscount.Size = new Size(94, 21);
+            rdoFlatDiscount.TabIndex = 2;
+            rdoFlatDiscount.Text = "Flat amount";
+            rdoFlatDiscount.UseVisualStyleBackColor = true;
+            // 
             // pnlDiscountAmountsLayout
-            //
-            pnlDiscountAmountsLayout.Location = new Point(22, 163);
-            pnlDiscountAmountsLayout.Size = new Size(522, 56);
+            // 
             pnlDiscountAmountsLayout.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlDiscountAmountsLayout.ColumnCount = 2;
-            pnlDiscountAmountsLayout.RowCount = 2;
-            pnlDiscountAmountsLayout.Margin = new Padding(0);
-            pnlDiscountAmountsLayout.TabIndex = 2;
             pnlDiscountAmountsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             pnlDiscountAmountsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            pnlDiscountAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            pnlDiscountAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlDiscountAmountsLayout.Name = "pnlDiscountAmountsLayout";
             pnlDiscountAmountsLayout.Controls.Add(lblPercentageDiscountCaption, 0, 0);
             pnlDiscountAmountsLayout.Controls.Add(txtPercentageDiscount, 0, 1);
             pnlDiscountAmountsLayout.Controls.Add(lblFlatDiscountCaption, 1, 0);
             pnlDiscountAmountsLayout.Controls.Add(txtFlatDiscount, 1, 1);
-            //
+            pnlDiscountAmountsLayout.Location = new Point(22, 163);
+            pnlDiscountAmountsLayout.Margin = new Padding(0);
+            pnlDiscountAmountsLayout.Name = "pnlDiscountAmountsLayout";
+            pnlDiscountAmountsLayout.RowCount = 2;
+            pnlDiscountAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            pnlDiscountAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlDiscountAmountsLayout.Size = new Size(522, 56);
+            pnlDiscountAmountsLayout.TabIndex = 2;
+            // 
             // lblPercentageDiscountCaption
-            //
-            lblPercentageDiscountCaption.AutoSize = false;
-            lblPercentageDiscountCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblPercentageDiscountCaption.Dock = DockStyle.Fill;
+            lblPercentageDiscountCaption.Font = new Font("Segoe UI", 9F);
             lblPercentageDiscountCaption.ForeColor = Color.FromArgb(23, 45, 68);
             lblPercentageDiscountCaption.Location = new Point(0, 0);
-            lblPercentageDiscountCaption.Size = new Size(200, 20);
-            lblPercentageDiscountCaption.Text = "Percentage discount (%)";
-            lblPercentageDiscountCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblPercentageDiscountCaption.TabStop = false;
-            lblPercentageDiscountCaption.Dock = DockStyle.Fill;
             lblPercentageDiscountCaption.Margin = new Padding(0);
             lblPercentageDiscountCaption.Name = "lblPercentageDiscountCaption";
-            //
+            lblPercentageDiscountCaption.Size = new Size(261, 22);
+            lblPercentageDiscountCaption.TabIndex = 0;
+            lblPercentageDiscountCaption.Text = "Percentage discount (%)";
+            lblPercentageDiscountCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // txtPercentageDiscount
-            //
-            txtPercentageDiscount.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPercentageDiscount.Location = new Point(0, 0);
-            txtPercentageDiscount.Size = new Size(200, 27);
-            txtPercentageDiscount.PlaceholderText = "e.g., 5";
-            txtPercentageDiscount.TabIndex = 0;
+            // 
             txtPercentageDiscount.AccessibleName = "Percentage discount";
             txtPercentageDiscount.BorderStyle = BorderStyle.FixedSingle;
+            txtPercentageDiscount.DataBindings.Add(new Binding("Enabled", rdoPercentageDiscount, "Checked", true, DataSourceUpdateMode.Never));
             txtPercentageDiscount.Dock = DockStyle.Top;
-            txtPercentageDiscount.Margin = new Padding(0, 2, 10, 0);
             txtPercentageDiscount.Enabled = false;
-            txtPercentageDiscount.DataBindings.Add(new Binding("Enabled", rdoPercentageDiscount, "Checked", false, DataSourceUpdateMode.Never));
+            txtPercentageDiscount.Font = new Font("Segoe UI", 10F);
+            txtPercentageDiscount.Location = new Point(0, 24);
+            txtPercentageDiscount.Margin = new Padding(0, 2, 10, 0);
             txtPercentageDiscount.Name = "txtPercentageDiscount";
-            //
+            txtPercentageDiscount.PlaceholderText = "e.g., 5";
+            txtPercentageDiscount.Size = new Size(251, 25);
+            txtPercentageDiscount.TabIndex = 0;
+            // 
             // lblFlatDiscountCaption
-            //
-            lblFlatDiscountCaption.AutoSize = false;
-            lblFlatDiscountCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFlatDiscountCaption.ForeColor = Color.FromArgb(23, 45, 68);
-            lblFlatDiscountCaption.Location = new Point(0, 0);
-            lblFlatDiscountCaption.Size = new Size(200, 20);
-            lblFlatDiscountCaption.Text = "Flat discount ($)";
-            lblFlatDiscountCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblFlatDiscountCaption.TabStop = false;
+            // 
             lblFlatDiscountCaption.Dock = DockStyle.Fill;
+            lblFlatDiscountCaption.Font = new Font("Segoe UI", 9F);
+            lblFlatDiscountCaption.ForeColor = Color.FromArgb(23, 45, 68);
+            lblFlatDiscountCaption.Location = new Point(261, 0);
             lblFlatDiscountCaption.Margin = new Padding(0);
             lblFlatDiscountCaption.Name = "lblFlatDiscountCaption";
-            //
+            lblFlatDiscountCaption.Size = new Size(261, 22);
+            lblFlatDiscountCaption.TabIndex = 1;
+            lblFlatDiscountCaption.Text = "Flat discount ($)";
+            lblFlatDiscountCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // txtFlatDiscount
-            //
-            txtFlatDiscount.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFlatDiscount.Location = new Point(0, 0);
-            txtFlatDiscount.Size = new Size(200, 27);
-            txtFlatDiscount.PlaceholderText = "e.g., 100";
-            txtFlatDiscount.TabIndex = 1;
+            // 
             txtFlatDiscount.AccessibleName = "Flat dollar discount";
             txtFlatDiscount.BorderStyle = BorderStyle.FixedSingle;
+            txtFlatDiscount.DataBindings.Add(new Binding("Enabled", rdoFlatDiscount, "Checked", true, DataSourceUpdateMode.Never));
             txtFlatDiscount.Dock = DockStyle.Top;
-            txtFlatDiscount.Margin = new Padding(0, 2, 0, 0);
             txtFlatDiscount.Enabled = false;
-            txtFlatDiscount.DataBindings.Add(new Binding("Enabled", rdoFlatDiscount, "Checked", false, DataSourceUpdateMode.Never));
+            txtFlatDiscount.Font = new Font("Segoe UI", 10F);
+            txtFlatDiscount.Location = new Point(261, 24);
+            txtFlatDiscount.Margin = new Padding(0, 2, 0, 0);
             txtFlatDiscount.Name = "txtFlatDiscount";
-            //
+            txtFlatDiscount.PlaceholderText = "e.g., 100";
+            txtFlatDiscount.Size = new Size(261, 25);
+            txtFlatDiscount.TabIndex = 1;
+            // 
             // lblDiscountHint
-            //
-            lblDiscountHint.AutoSize = false;
-            lblDiscountHint.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblDiscountHint.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblDiscountHint.Font = new Font("Segoe UI", 8.5F);
             lblDiscountHint.ForeColor = Color.FromArgb(88, 106, 126);
             lblDiscountHint.Location = new Point(22, 227);
+            lblDiscountHint.Name = "lblDiscountHint";
             lblDiscountHint.Size = new Size(522, 18);
+            lblDiscountHint.TabIndex = 3;
             lblDiscountHint.Text = "Choose one discount type, or select No discount.";
             lblDiscountHint.TextAlign = ContentAlignment.MiddleLeft;
-            lblDiscountHint.TabStop = false;
-            lblDiscountHint.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblDiscountHint.Name = "lblDiscountHint";
-            //
+            // 
             // pnlValidation
-            //
-            pnlValidation.Dock = DockStyle.Fill;
-            pnlValidation.Margin = new Padding(0);
-            pnlValidation.Size = new Size(568, 84);
+            // 
             pnlValidation.BackColor = Color.FromArgb(255, 242, 240);
             pnlValidation.BorderStyle = BorderStyle.FixedSingle;
-            pnlValidation.Visible = false;
-            pnlValidation.TabIndex = 2;
-            pnlValidation.Name = "pnlValidation";
             pnlValidation.Controls.Add(lblValidationHeading);
             pnlValidation.Controls.Add(lblValidationMessage);
-            //
+            pnlValidation.Dock = DockStyle.Fill;
+            pnlValidation.Location = new Point(0, 512);
+            pnlValidation.Margin = new Padding(0);
+            pnlValidation.Name = "pnlValidation";
+            pnlValidation.Size = new Size(568, 84);
+            pnlValidation.TabIndex = 2;
+            pnlValidation.Visible = false;
+            // 
             // lblValidationHeading
-            //
-            lblValidationHeading.AutoSize = false;
-            lblValidationHeading.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            // 
+            lblValidationHeading.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblValidationHeading.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblValidationHeading.ForeColor = Color.FromArgb(157, 48, 37);
             lblValidationHeading.Location = new Point(14, 9);
-            lblValidationHeading.Size = new Size(538, 20);
+            lblValidationHeading.Name = "lblValidationHeading";
+            lblValidationHeading.Size = new Size(536, 20);
+            lblValidationHeading.TabIndex = 0;
             lblValidationHeading.Text = "Please review the entered details.";
             lblValidationHeading.TextAlign = ContentAlignment.MiddleLeft;
-            lblValidationHeading.TabStop = false;
-            lblValidationHeading.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblValidationHeading.Name = "lblValidationHeading";
-            //
+            // 
             // lblValidationMessage
-            //
-            lblValidationMessage.AutoSize = false;
-            lblValidationMessage.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblValidationMessage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblValidationMessage.Font = new Font("Segoe UI", 9F);
             lblValidationMessage.ForeColor = Color.FromArgb(157, 48, 37);
             lblValidationMessage.Location = new Point(14, 33);
-            lblValidationMessage.Size = new Size(538, 40);
-            lblValidationMessage.Text = "";
-            lblValidationMessage.TextAlign = ContentAlignment.TopLeft;
-            lblValidationMessage.TabStop = false;
-            lblValidationMessage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblValidationMessage.Name = "lblValidationMessage";
-            //
+            lblValidationMessage.Size = new Size(536, 40);
+            lblValidationMessage.TabIndex = 1;
+            // 
             // pnlQuote
-            //
-            pnlQuote.Dock = DockStyle.Fill;
-            pnlQuote.Margin = new Padding(0);
-            pnlQuote.Size = new Size(484, 596);
+            // 
             pnlQuote.BackColor = Color.White;
             pnlQuote.BorderStyle = BorderStyle.FixedSingle;
-            pnlQuote.TabIndex = 1;
-            pnlQuote.Name = "pnlQuote";
             pnlQuote.Controls.Add(lblQuoteSection);
             pnlQuote.Controls.Add(lblPreparedForCaption);
             pnlQuote.Controls.Add(lblCustomerName);
@@ -743,183 +718,172 @@ namespace ChargeEm
             pnlQuote.Controls.Add(pnlQuoteAmountsLayout);
             pnlQuote.Controls.Add(pnlTotal);
             pnlQuote.Controls.Add(lblQuoteStatus);
-            //
+            pnlQuote.Dock = DockStyle.Fill;
+            pnlQuote.Location = new Point(588, 0);
+            pnlQuote.Margin = new Padding(0);
+            pnlQuote.Name = "pnlQuote";
+            pnlQuote.Size = new Size(484, 596);
+            pnlQuote.TabIndex = 1;
+            // 
             // lblQuoteSection
-            //
-            lblQuoteSection.AutoSize = false;
-            lblQuoteSection.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            // 
+            lblQuoteSection.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblQuoteSection.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             lblQuoteSection.ForeColor = Color.FromArgb(23, 45, 68);
             lblQuoteSection.Location = new Point(22, 16);
-            lblQuoteSection.Size = new Size(438, 28);
+            lblQuoteSection.Name = "lblQuoteSection";
+            lblQuoteSection.Size = new Size(436, 28);
+            lblQuoteSection.TabIndex = 0;
             lblQuoteSection.Text = "Policy quotation";
             lblQuoteSection.TextAlign = ContentAlignment.MiddleLeft;
-            lblQuoteSection.TabStop = false;
-            lblQuoteSection.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblQuoteSection.Name = "lblQuoteSection";
-            //
+            // 
             // lblPreparedForCaption
-            //
-            lblPreparedForCaption.AutoSize = false;
-            lblPreparedForCaption.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblPreparedForCaption.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblPreparedForCaption.Font = new Font("Segoe UI", 8.5F);
             lblPreparedForCaption.ForeColor = Color.FromArgb(88, 106, 126);
             lblPreparedForCaption.Location = new Point(22, 56);
-            lblPreparedForCaption.Size = new Size(438, 18);
+            lblPreparedForCaption.Name = "lblPreparedForCaption";
+            lblPreparedForCaption.Size = new Size(436, 18);
+            lblPreparedForCaption.TabIndex = 1;
             lblPreparedForCaption.Text = "PREPARED FOR";
             lblPreparedForCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblPreparedForCaption.TabStop = false;
-            lblPreparedForCaption.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblPreparedForCaption.Name = "lblPreparedForCaption";
-            //
+            // 
             // lblCustomerName
-            //
-            lblCustomerName.AutoSize = false;
-            lblCustomerName.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold, GraphicsUnit.Point);
+            // 
+            lblCustomerName.AccessibleName = "Quoted customer name";
+            lblCustomerName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblCustomerName.Font = new Font("Segoe UI", 12.5F, FontStyle.Bold);
             lblCustomerName.ForeColor = Color.FromArgb(23, 45, 68);
             lblCustomerName.Location = new Point(22, 78);
-            lblCustomerName.Size = new Size(438, 38);
+            lblCustomerName.Name = "lblCustomerName";
+            lblCustomerName.Size = new Size(436, 38);
+            lblCustomerName.TabIndex = 2;
             lblCustomerName.Text = "—";
             lblCustomerName.TextAlign = ContentAlignment.MiddleLeft;
-            lblCustomerName.TabStop = false;
-            lblCustomerName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblCustomerName.AccessibleName = "Quoted customer name";
-            lblCustomerName.Name = "lblCustomerName";
-            //
+            // 
             // pnlQuotedCoverageLayout
-            //
-            pnlQuotedCoverageLayout.Location = new Point(22, 124);
-            pnlQuotedCoverageLayout.Size = new Size(438, 28);
+            // 
             pnlQuotedCoverageLayout.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlQuotedCoverageLayout.ColumnCount = 2;
-            pnlQuotedCoverageLayout.RowCount = 1;
-            pnlQuotedCoverageLayout.Margin = new Padding(0);
             pnlQuotedCoverageLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
             pnlQuotedCoverageLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55F));
-            pnlQuotedCoverageLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlQuotedCoverageLayout.Name = "pnlQuotedCoverageLayout";
             pnlQuotedCoverageLayout.Controls.Add(lblQuotedCoverageCaption, 0, 0);
             pnlQuotedCoverageLayout.Controls.Add(lblCoverageAmount, 1, 0);
-            //
+            pnlQuotedCoverageLayout.Location = new Point(22, 124);
+            pnlQuotedCoverageLayout.Margin = new Padding(0);
+            pnlQuotedCoverageLayout.Name = "pnlQuotedCoverageLayout";
+            pnlQuotedCoverageLayout.RowCount = 1;
+            pnlQuotedCoverageLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlQuotedCoverageLayout.Size = new Size(436, 28);
+            pnlQuotedCoverageLayout.TabIndex = 3;
+            // 
             // lblQuotedCoverageCaption
-            //
-            lblQuotedCoverageCaption.AutoSize = false;
-            lblQuotedCoverageCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblQuotedCoverageCaption.Dock = DockStyle.Fill;
+            lblQuotedCoverageCaption.Font = new Font("Segoe UI", 9F);
             lblQuotedCoverageCaption.ForeColor = Color.FromArgb(88, 106, 126);
             lblQuotedCoverageCaption.Location = new Point(0, 0);
-            lblQuotedCoverageCaption.Size = new Size(200, 20);
-            lblQuotedCoverageCaption.Text = "Coverage amount";
-            lblQuotedCoverageCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblQuotedCoverageCaption.TabStop = false;
-            lblQuotedCoverageCaption.Dock = DockStyle.Fill;
             lblQuotedCoverageCaption.Margin = new Padding(0);
             lblQuotedCoverageCaption.Name = "lblQuotedCoverageCaption";
-            //
+            lblQuotedCoverageCaption.Size = new Size(196, 28);
+            lblQuotedCoverageCaption.TabIndex = 0;
+            lblQuotedCoverageCaption.Text = "Coverage amount";
+            lblQuotedCoverageCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lblCoverageAmount
-            //
-            lblCoverageAmount.AutoSize = false;
-            lblCoverageAmount.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCoverageAmount.ForeColor = Color.FromArgb(23, 45, 68);
-            lblCoverageAmount.Location = new Point(0, 0);
-            lblCoverageAmount.Size = new Size(200, 20);
-            lblCoverageAmount.Text = "—";
-            lblCoverageAmount.TextAlign = ContentAlignment.MiddleRight;
-            lblCoverageAmount.TabStop = false;
+            // 
             lblCoverageAmount.Dock = DockStyle.Fill;
+            lblCoverageAmount.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCoverageAmount.ForeColor = Color.FromArgb(23, 45, 68);
+            lblCoverageAmount.Location = new Point(196, 0);
             lblCoverageAmount.Margin = new Padding(0);
             lblCoverageAmount.Name = "lblCoverageAmount";
-            //
+            lblCoverageAmount.Size = new Size(240, 28);
+            lblCoverageAmount.TabIndex = 1;
+            lblCoverageAmount.Text = "—";
+            lblCoverageAmount.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // pnlRiskLayout
-            //
-            pnlRiskLayout.Location = new Point(22, 164);
-            pnlRiskLayout.Size = new Size(438, 84);
+            // 
             pnlRiskLayout.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlRiskLayout.BackColor = Color.FromArgb(241, 245, 249);
-            pnlRiskLayout.Padding = new Padding(14, 10, 14, 8);
             pnlRiskLayout.ColumnCount = 2;
-            pnlRiskLayout.RowCount = 2;
-            pnlRiskLayout.Margin = new Padding(0);
             pnlRiskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             pnlRiskLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            pnlRiskLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            pnlRiskLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            pnlRiskLayout.Name = "pnlRiskLayout";
             pnlRiskLayout.Controls.Add(lblRiskFactorCaption, 0, 0);
             pnlRiskLayout.Controls.Add(lblRiskCategoryCaption, 1, 0);
             pnlRiskLayout.Controls.Add(lblRiskFactor, 0, 1);
             pnlRiskLayout.Controls.Add(lblRiskCategory, 1, 1);
-            //
+            pnlRiskLayout.Location = new Point(22, 164);
+            pnlRiskLayout.Margin = new Padding(0);
+            pnlRiskLayout.Name = "pnlRiskLayout";
+            pnlRiskLayout.Padding = new Padding(14, 10, 14, 8);
+            pnlRiskLayout.RowCount = 2;
+            pnlRiskLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            pnlRiskLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            pnlRiskLayout.Size = new Size(436, 84);
+            pnlRiskLayout.TabIndex = 4;
+            // 
             // lblRiskFactorCaption
-            //
-            lblRiskFactorCaption.AutoSize = false;
-            lblRiskFactorCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRiskFactorCaption.ForeColor = Color.FromArgb(88, 106, 126);
-            lblRiskFactorCaption.Location = new Point(0, 0);
-            lblRiskFactorCaption.Size = new Size(200, 20);
-            lblRiskFactorCaption.Text = "Risk factor";
-            lblRiskFactorCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblRiskFactorCaption.TabStop = false;
+            // 
             lblRiskFactorCaption.Dock = DockStyle.Fill;
+            lblRiskFactorCaption.Font = new Font("Segoe UI", 9F);
+            lblRiskFactorCaption.ForeColor = Color.FromArgb(88, 106, 126);
+            lblRiskFactorCaption.Location = new Point(14, 10);
             lblRiskFactorCaption.Margin = new Padding(0);
             lblRiskFactorCaption.Name = "lblRiskFactorCaption";
-            //
+            lblRiskFactorCaption.Size = new Size(204, 20);
+            lblRiskFactorCaption.TabIndex = 0;
+            lblRiskFactorCaption.Text = "Risk factor";
+            lblRiskFactorCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lblRiskCategoryCaption
-            //
-            lblRiskCategoryCaption.AutoSize = false;
-            lblRiskCategoryCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRiskCategoryCaption.ForeColor = Color.FromArgb(88, 106, 126);
-            lblRiskCategoryCaption.Location = new Point(0, 0);
-            lblRiskCategoryCaption.Size = new Size(200, 20);
-            lblRiskCategoryCaption.Text = "Safe / unsafe";
-            lblRiskCategoryCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblRiskCategoryCaption.TabStop = false;
+            // 
             lblRiskCategoryCaption.Dock = DockStyle.Fill;
+            lblRiskCategoryCaption.Font = new Font("Segoe UI", 9F);
+            lblRiskCategoryCaption.ForeColor = Color.FromArgb(88, 106, 126);
+            lblRiskCategoryCaption.Location = new Point(218, 10);
             lblRiskCategoryCaption.Margin = new Padding(0);
             lblRiskCategoryCaption.Name = "lblRiskCategoryCaption";
-            //
+            lblRiskCategoryCaption.Size = new Size(204, 20);
+            lblRiskCategoryCaption.TabIndex = 1;
+            lblRiskCategoryCaption.Text = "Safe / unsafe";
+            lblRiskCategoryCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lblRiskFactor
-            //
-            lblRiskFactor.AutoSize = false;
-            lblRiskFactor.Font = new Font("Segoe UI", 19F, FontStyle.Bold, GraphicsUnit.Point);
+            // 
+            lblRiskFactor.AutoEllipsis = true;
+            lblRiskFactor.Dock = DockStyle.Fill;
+            lblRiskFactor.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             lblRiskFactor.ForeColor = Color.FromArgb(23, 45, 68);
-            lblRiskFactor.Location = new Point(0, 0);
-            lblRiskFactor.Size = new Size(200, 20);
+            lblRiskFactor.Location = new Point(14, 30);
+            lblRiskFactor.Margin = new Padding(0);
+            lblRiskFactor.Name = "lblRiskFactor";
+            lblRiskFactor.Size = new Size(204, 46);
+            lblRiskFactor.TabIndex = 2;
             lblRiskFactor.Text = "—";
             lblRiskFactor.TextAlign = ContentAlignment.MiddleLeft;
-            lblRiskFactor.TabStop = false;
-            lblRiskFactor.Dock = DockStyle.Fill;
-            lblRiskFactor.Margin = new Padding(0);
-            lblRiskFactor.AutoEllipsis = true;
-            lblRiskFactor.Name = "lblRiskFactor";
-            //
+            // 
             // lblRiskCategory
-            //
-            lblRiskCategory.AutoSize = false;
-            lblRiskCategory.Font = new Font("Segoe UI", 19F, FontStyle.Bold, GraphicsUnit.Point);
-            lblRiskCategory.ForeColor = Color.FromArgb(23, 45, 68);
-            lblRiskCategory.Location = new Point(0, 0);
-            lblRiskCategory.Size = new Size(200, 20);
-            lblRiskCategory.Text = "—";
-            lblRiskCategory.TextAlign = ContentAlignment.MiddleLeft;
-            lblRiskCategory.TabStop = false;
+            // 
             lblRiskCategory.Dock = DockStyle.Fill;
+            lblRiskCategory.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
+            lblRiskCategory.ForeColor = Color.FromArgb(23, 45, 68);
+            lblRiskCategory.Location = new Point(218, 30);
             lblRiskCategory.Margin = new Padding(0);
             lblRiskCategory.Name = "lblRiskCategory";
-            //
+            lblRiskCategory.Size = new Size(204, 46);
+            lblRiskCategory.TabIndex = 3;
+            lblRiskCategory.Text = "—";
+            lblRiskCategory.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // pnlQuoteAmountsLayout
-            //
-            pnlQuoteAmountsLayout.Location = new Point(22, 264);
-            pnlQuoteAmountsLayout.Size = new Size(438, 156);
+            // 
             pnlQuoteAmountsLayout.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlQuoteAmountsLayout.ColumnCount = 2;
-            pnlQuoteAmountsLayout.RowCount = 5;
-            pnlQuoteAmountsLayout.Margin = new Padding(0);
             pnlQuoteAmountsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
             pnlQuoteAmountsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
-            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            pnlQuoteAmountsLayout.Name = "pnlQuoteAmountsLayout";
             pnlQuoteAmountsLayout.Controls.Add(lblCostPerThousandCaption, 0, 0);
             pnlQuoteAmountsLayout.Controls.Add(lblCostPerThousand, 1, 0);
             pnlQuoteAmountsLayout.Controls.Add(lblAnnualPremiumCaption, 0, 1);
@@ -930,359 +894,323 @@ namespace ChargeEm
             pnlQuoteAmountsLayout.Controls.Add(lblSubtotal, 1, 3);
             pnlQuoteAmountsLayout.Controls.Add(lblSalesTaxCaption, 0, 4);
             pnlQuoteAmountsLayout.Controls.Add(lblSalesTax, 1, 4);
-            //
+            pnlQuoteAmountsLayout.Location = new Point(22, 264);
+            pnlQuoteAmountsLayout.Margin = new Padding(0);
+            pnlQuoteAmountsLayout.Name = "pnlQuoteAmountsLayout";
+            pnlQuoteAmountsLayout.RowCount = 5;
+            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            pnlQuoteAmountsLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            pnlQuoteAmountsLayout.Size = new Size(436, 156);
+            pnlQuoteAmountsLayout.TabIndex = 5;
+            // 
             // lblCostPerThousandCaption
-            //
-            lblCostPerThousandCaption.AutoSize = false;
-            lblCostPerThousandCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblCostPerThousandCaption.Dock = DockStyle.Fill;
+            lblCostPerThousandCaption.Font = new Font("Segoe UI", 9F);
             lblCostPerThousandCaption.ForeColor = Color.FromArgb(88, 106, 126);
             lblCostPerThousandCaption.Location = new Point(0, 0);
-            lblCostPerThousandCaption.Size = new Size(200, 20);
-            lblCostPerThousandCaption.Text = "Cost per $1,000";
-            lblCostPerThousandCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblCostPerThousandCaption.TabStop = false;
-            lblCostPerThousandCaption.Dock = DockStyle.Fill;
             lblCostPerThousandCaption.Margin = new Padding(0);
             lblCostPerThousandCaption.Name = "lblCostPerThousandCaption";
-            //
+            lblCostPerThousandCaption.Size = new Size(261, 31);
+            lblCostPerThousandCaption.TabIndex = 0;
+            lblCostPerThousandCaption.Text = "Cost per $1,000";
+            lblCostPerThousandCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lblCostPerThousand
-            //
-            lblCostPerThousand.AutoSize = false;
-            lblCostPerThousand.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCostPerThousand.ForeColor = Color.FromArgb(23, 45, 68);
-            lblCostPerThousand.Location = new Point(0, 0);
-            lblCostPerThousand.Size = new Size(200, 20);
-            lblCostPerThousand.Text = "—";
-            lblCostPerThousand.TextAlign = ContentAlignment.MiddleRight;
-            lblCostPerThousand.TabStop = false;
+            // 
             lblCostPerThousand.Dock = DockStyle.Fill;
+            lblCostPerThousand.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCostPerThousand.ForeColor = Color.FromArgb(23, 45, 68);
+            lblCostPerThousand.Location = new Point(261, 0);
             lblCostPerThousand.Margin = new Padding(0);
             lblCostPerThousand.Name = "lblCostPerThousand";
-            //
+            lblCostPerThousand.Size = new Size(175, 31);
+            lblCostPerThousand.TabIndex = 1;
+            lblCostPerThousand.Text = "—";
+            lblCostPerThousand.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // lblAnnualPremiumCaption
-            //
-            lblAnnualPremiumCaption.AutoSize = false;
-            lblAnnualPremiumCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblAnnualPremiumCaption.ForeColor = Color.FromArgb(88, 106, 126);
-            lblAnnualPremiumCaption.Location = new Point(0, 0);
-            lblAnnualPremiumCaption.Size = new Size(200, 20);
-            lblAnnualPremiumCaption.Text = "Annual premium";
-            lblAnnualPremiumCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblAnnualPremiumCaption.TabStop = false;
+            // 
             lblAnnualPremiumCaption.Dock = DockStyle.Fill;
+            lblAnnualPremiumCaption.Font = new Font("Segoe UI", 9F);
+            lblAnnualPremiumCaption.ForeColor = Color.FromArgb(88, 106, 126);
+            lblAnnualPremiumCaption.Location = new Point(0, 31);
             lblAnnualPremiumCaption.Margin = new Padding(0);
             lblAnnualPremiumCaption.Name = "lblAnnualPremiumCaption";
-            //
+            lblAnnualPremiumCaption.Size = new Size(261, 31);
+            lblAnnualPremiumCaption.TabIndex = 2;
+            lblAnnualPremiumCaption.Text = "Annual premium";
+            lblAnnualPremiumCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lblAnnualPremium
-            //
-            lblAnnualPremium.AutoSize = false;
-            lblAnnualPremium.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAnnualPremium.ForeColor = Color.FromArgb(23, 45, 68);
-            lblAnnualPremium.Location = new Point(0, 0);
-            lblAnnualPremium.Size = new Size(200, 20);
-            lblAnnualPremium.Text = "—";
-            lblAnnualPremium.TextAlign = ContentAlignment.MiddleRight;
-            lblAnnualPremium.TabStop = false;
+            // 
             lblAnnualPremium.Dock = DockStyle.Fill;
+            lblAnnualPremium.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblAnnualPremium.ForeColor = Color.FromArgb(23, 45, 68);
+            lblAnnualPremium.Location = new Point(261, 31);
             lblAnnualPremium.Margin = new Padding(0);
             lblAnnualPremium.Name = "lblAnnualPremium";
-            //
+            lblAnnualPremium.Size = new Size(175, 31);
+            lblAnnualPremium.TabIndex = 3;
+            lblAnnualPremium.Text = "—";
+            lblAnnualPremium.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // lblDiscountAmountCaption
-            //
-            lblDiscountAmountCaption.AutoSize = false;
-            lblDiscountAmountCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDiscountAmountCaption.ForeColor = Color.FromArgb(88, 106, 126);
-            lblDiscountAmountCaption.Location = new Point(0, 0);
-            lblDiscountAmountCaption.Size = new Size(200, 20);
-            lblDiscountAmountCaption.Text = "Discount";
-            lblDiscountAmountCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblDiscountAmountCaption.TabStop = false;
+            // 
             lblDiscountAmountCaption.Dock = DockStyle.Fill;
+            lblDiscountAmountCaption.Font = new Font("Segoe UI", 9F);
+            lblDiscountAmountCaption.ForeColor = Color.FromArgb(88, 106, 126);
+            lblDiscountAmountCaption.Location = new Point(0, 62);
             lblDiscountAmountCaption.Margin = new Padding(0);
             lblDiscountAmountCaption.Name = "lblDiscountAmountCaption";
-            //
+            lblDiscountAmountCaption.Size = new Size(261, 31);
+            lblDiscountAmountCaption.TabIndex = 4;
+            lblDiscountAmountCaption.Text = "Discount";
+            lblDiscountAmountCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lblDiscountAmount
-            //
-            lblDiscountAmount.AutoSize = false;
-            lblDiscountAmount.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDiscountAmount.ForeColor = Color.FromArgb(23, 45, 68);
-            lblDiscountAmount.Location = new Point(0, 0);
-            lblDiscountAmount.Size = new Size(200, 20);
-            lblDiscountAmount.Text = "—";
-            lblDiscountAmount.TextAlign = ContentAlignment.MiddleRight;
-            lblDiscountAmount.TabStop = false;
+            // 
             lblDiscountAmount.Dock = DockStyle.Fill;
+            lblDiscountAmount.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblDiscountAmount.ForeColor = Color.FromArgb(23, 45, 68);
+            lblDiscountAmount.Location = new Point(261, 62);
             lblDiscountAmount.Margin = new Padding(0);
             lblDiscountAmount.Name = "lblDiscountAmount";
-            //
+            lblDiscountAmount.Size = new Size(175, 31);
+            lblDiscountAmount.TabIndex = 5;
+            lblDiscountAmount.Text = "—";
+            lblDiscountAmount.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // lblSubtotalCaption
-            //
-            lblSubtotalCaption.AutoSize = false;
-            lblSubtotalCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSubtotalCaption.ForeColor = Color.FromArgb(88, 106, 126);
-            lblSubtotalCaption.Location = new Point(0, 0);
-            lblSubtotalCaption.Size = new Size(200, 20);
-            lblSubtotalCaption.Text = "Premium after discount";
-            lblSubtotalCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblSubtotalCaption.TabStop = false;
+            // 
             lblSubtotalCaption.Dock = DockStyle.Fill;
+            lblSubtotalCaption.Font = new Font("Segoe UI", 9F);
+            lblSubtotalCaption.ForeColor = Color.FromArgb(88, 106, 126);
+            lblSubtotalCaption.Location = new Point(0, 93);
             lblSubtotalCaption.Margin = new Padding(0);
             lblSubtotalCaption.Name = "lblSubtotalCaption";
-            //
+            lblSubtotalCaption.Size = new Size(261, 31);
+            lblSubtotalCaption.TabIndex = 6;
+            lblSubtotalCaption.Text = "Premium after discount";
+            lblSubtotalCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lblSubtotal
-            //
-            lblSubtotal.AutoSize = false;
-            lblSubtotal.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSubtotal.ForeColor = Color.FromArgb(23, 45, 68);
-            lblSubtotal.Location = new Point(0, 0);
-            lblSubtotal.Size = new Size(200, 20);
-            lblSubtotal.Text = "—";
-            lblSubtotal.TextAlign = ContentAlignment.MiddleRight;
-            lblSubtotal.TabStop = false;
+            // 
             lblSubtotal.Dock = DockStyle.Fill;
+            lblSubtotal.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblSubtotal.ForeColor = Color.FromArgb(23, 45, 68);
+            lblSubtotal.Location = new Point(261, 93);
             lblSubtotal.Margin = new Padding(0);
             lblSubtotal.Name = "lblSubtotal";
-            //
+            lblSubtotal.Size = new Size(175, 31);
+            lblSubtotal.TabIndex = 7;
+            lblSubtotal.Text = "—";
+            lblSubtotal.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // lblSalesTaxCaption
-            //
-            lblSalesTaxCaption.AutoSize = false;
-            lblSalesTaxCaption.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSalesTaxCaption.ForeColor = Color.FromArgb(88, 106, 126);
-            lblSalesTaxCaption.Location = new Point(0, 0);
-            lblSalesTaxCaption.Size = new Size(200, 20);
-            lblSalesTaxCaption.Text = "Michigan sales tax";
-            lblSalesTaxCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblSalesTaxCaption.TabStop = false;
+            // 
             lblSalesTaxCaption.Dock = DockStyle.Fill;
+            lblSalesTaxCaption.Font = new Font("Segoe UI", 9F);
+            lblSalesTaxCaption.ForeColor = Color.FromArgb(88, 106, 126);
+            lblSalesTaxCaption.Location = new Point(0, 124);
             lblSalesTaxCaption.Margin = new Padding(0);
             lblSalesTaxCaption.Name = "lblSalesTaxCaption";
-            //
+            lblSalesTaxCaption.Size = new Size(261, 32);
+            lblSalesTaxCaption.TabIndex = 8;
+            lblSalesTaxCaption.Text = "Michigan sales tax";
+            lblSalesTaxCaption.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lblSalesTax
-            //
-            lblSalesTax.AutoSize = false;
-            lblSalesTax.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSalesTax.ForeColor = Color.FromArgb(23, 45, 68);
-            lblSalesTax.Location = new Point(0, 0);
-            lblSalesTax.Size = new Size(200, 20);
-            lblSalesTax.Text = "—";
-            lblSalesTax.TextAlign = ContentAlignment.MiddleRight;
-            lblSalesTax.TabStop = false;
+            // 
             lblSalesTax.Dock = DockStyle.Fill;
+            lblSalesTax.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblSalesTax.ForeColor = Color.FromArgb(23, 45, 68);
+            lblSalesTax.Location = new Point(261, 124);
             lblSalesTax.Margin = new Padding(0);
             lblSalesTax.Name = "lblSalesTax";
-            //
+            lblSalesTax.Size = new Size(175, 32);
+            lblSalesTax.TabIndex = 9;
+            lblSalesTax.Text = "—";
+            lblSalesTax.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // pnlTotal
-            //
-            pnlTotal.Location = new Point(22, 438);
-            pnlTotal.Size = new Size(438, 104);
+            // 
             pnlTotal.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlTotal.BackColor = Color.FromArgb(23, 45, 68);
-            pnlTotal.Name = "pnlTotal";
             pnlTotal.Controls.Add(lblTotalCaption);
             pnlTotal.Controls.Add(lblTotalAnnualPremium);
             pnlTotal.Controls.Add(lblTotalHint);
-            //
+            pnlTotal.Location = new Point(22, 438);
+            pnlTotal.Name = "pnlTotal";
+            pnlTotal.Size = new Size(436, 104);
+            pnlTotal.TabIndex = 6;
+            // 
             // lblTotalCaption
-            //
-            lblTotalCaption.AutoSize = false;
-            lblTotalCaption.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold, GraphicsUnit.Point);
+            // 
+            lblTotalCaption.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblTotalCaption.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
             lblTotalCaption.ForeColor = Color.FromArgb(214, 228, 240);
             lblTotalCaption.Location = new Point(16, 10);
-            lblTotalCaption.Size = new Size(406, 20);
+            lblTotalCaption.Name = "lblTotalCaption";
+            lblTotalCaption.Size = new Size(404, 20);
+            lblTotalCaption.TabIndex = 0;
             lblTotalCaption.Text = "TOTAL ANNUAL PREMIUM";
             lblTotalCaption.TextAlign = ContentAlignment.MiddleLeft;
-            lblTotalCaption.TabStop = false;
-            lblTotalCaption.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblTotalCaption.Name = "lblTotalCaption";
-            //
+            // 
             // lblTotalAnnualPremium
-            //
-            lblTotalAnnualPremium.AutoSize = false;
-            lblTotalAnnualPremium.Font = new Font("Segoe UI", 23F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalAnnualPremium.ForeColor = Color.White;
-            lblTotalAnnualPremium.Location = new Point(16, 34);
-            lblTotalAnnualPremium.Size = new Size(406, 40);
-            lblTotalAnnualPremium.Text = "—";
-            lblTotalAnnualPremium.TextAlign = ContentAlignment.MiddleLeft;
-            lblTotalAnnualPremium.TabStop = false;
+            // 
             lblTotalAnnualPremium.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblTotalAnnualPremium.AutoEllipsis = true;
+            lblTotalAnnualPremium.Font = new Font("Segoe UI", 23F, FontStyle.Bold);
+            lblTotalAnnualPremium.ForeColor = Color.White;
+            lblTotalAnnualPremium.Location = new Point(16, 34);
             lblTotalAnnualPremium.Name = "lblTotalAnnualPremium";
-            //
+            lblTotalAnnualPremium.Size = new Size(404, 40);
+            lblTotalAnnualPremium.TabIndex = 1;
+            lblTotalAnnualPremium.Text = "—";
+            lblTotalAnnualPremium.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lblTotalHint
-            //
-            lblTotalHint.AutoSize = false;
-            lblTotalHint.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblTotalHint.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblTotalHint.Font = new Font("Segoe UI", 8.5F);
             lblTotalHint.ForeColor = Color.FromArgb(214, 228, 240);
             lblTotalHint.Location = new Point(16, 80);
-            lblTotalHint.Size = new Size(406, 16);
+            lblTotalHint.Name = "lblTotalHint";
+            lblTotalHint.Size = new Size(404, 16);
+            lblTotalHint.TabIndex = 2;
             lblTotalHint.Text = "Including discount and sales tax";
             lblTotalHint.TextAlign = ContentAlignment.MiddleLeft;
-            lblTotalHint.TabStop = false;
-            lblTotalHint.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblTotalHint.Name = "lblTotalHint";
-            //
+            // 
             // lblQuoteStatus
-            //
-            lblQuoteStatus.AutoSize = false;
-            lblQuoteStatus.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblQuoteStatus.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblQuoteStatus.Font = new Font("Segoe UI", 9F);
             lblQuoteStatus.ForeColor = Color.FromArgb(88, 106, 126);
             lblQuoteStatus.Location = new Point(22, 561);
-            lblQuoteStatus.Size = new Size(438, 20);
+            lblQuoteStatus.Name = "lblQuoteStatus";
+            lblQuoteStatus.Size = new Size(436, 20);
+            lblQuoteStatus.TabIndex = 7;
             lblQuoteStatus.Text = "No quote generated.";
             lblQuoteStatus.TextAlign = ContentAlignment.MiddleLeft;
-            lblQuoteStatus.TabStop = false;
-            lblQuoteStatus.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblQuoteStatus.Name = "lblQuoteStatus";
-            //
+            // 
             // pnlFooter
-            //
-            pnlFooter.Dock = DockStyle.Fill;
-            pnlFooter.Margin = new Padding(0);
-            pnlFooter.Size = new Size(1120, 74);
+            // 
             pnlFooter.BackColor = Color.White;
-            pnlFooter.TabIndex = 2;
-            pnlFooter.Name = "pnlFooter";
             pnlFooter.Controls.Add(pnlFooterDivider);
             pnlFooter.Controls.Add(lblFooterHint);
-            pnlFooter.Controls.Add(btnExit);
             pnlFooter.Controls.Add(btnClear);
             pnlFooter.Controls.Add(btnGenerateQuote);
-            //
+            pnlFooter.Dock = DockStyle.Fill;
+            pnlFooter.Location = new Point(0, 726);
+            pnlFooter.Margin = new Padding(0);
+            pnlFooter.Name = "pnlFooter";
+            pnlFooter.Size = new Size(1120, 74);
+            pnlFooter.TabIndex = 2;
+            // 
             // pnlFooterDivider
-            //
-            pnlFooterDivider.Dock = DockStyle.Top;
-            pnlFooterDivider.Size = new Size(1120, 1);
+            // 
             pnlFooterDivider.BackColor = Color.FromArgb(222, 229, 237);
+            pnlFooterDivider.Dock = DockStyle.Top;
+            pnlFooterDivider.Location = new Point(0, 0);
             pnlFooterDivider.Name = "pnlFooterDivider";
-            //
+            pnlFooterDivider.Size = new Size(1120, 1);
+            pnlFooterDivider.TabIndex = 0;
+            // 
             // lblFooterHint
-            //
-            lblFooterHint.AutoSize = false;
-            lblFooterHint.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            lblFooterHint.Font = new Font("Segoe UI", 9F);
             lblFooterHint.ForeColor = Color.FromArgb(88, 106, 126);
             lblFooterHint.Location = new Point(24, 27);
+            lblFooterHint.Name = "lblFooterHint";
             lblFooterHint.Size = new Size(520, 20);
+            lblFooterHint.TabIndex = 1;
             lblFooterHint.Text = "Review customer details before generating a quote.";
             lblFooterHint.TextAlign = ContentAlignment.MiddleLeft;
-            lblFooterHint.TabStop = false;
-            lblFooterHint.Name = "lblFooterHint";
-            //
-            // btnExit
-            //
-            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExit.Location = new Point(728, 16);
-            btnExit.Size = new Size(90, 42);
-            btnExit.Text = "&Exit";
-            btnExit.TabIndex = 2;
-            btnExit.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.BackColor = Color.White;
-            btnExit.ForeColor = Color.FromArgb(23, 45, 68);
-            btnExit.FlatAppearance.BorderSize = 1;
-            btnExit.FlatAppearance.BorderColor = Color.FromArgb(186, 199, 213);
-            btnExit.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 245, 249);
-            btnExit.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 245, 248);
-            btnExit.UseVisualStyleBackColor = false;
-            //btnExit.Click += btnExit_Click;
-            btnExit.Name = "btnExit";
-            //
+            // 
             // btnClear
-            //
+            // 
             btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnClear.Location = new Point(828, 16);
-            btnClear.Size = new Size(90, 42);
-            btnClear.Text = "&Clear";
-            btnClear.TabIndex = 1;
-            btnClear.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
-            btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.BackColor = Color.White;
-            btnClear.ForeColor = Color.FromArgb(23, 45, 68);
-            btnClear.FlatAppearance.BorderSize = 1;
             btnClear.FlatAppearance.BorderColor = Color.FromArgb(186, 199, 213);
-            btnClear.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 245, 249);
             btnClear.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 245, 248);
+            btnClear.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 245, 249);
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            btnClear.ForeColor = Color.FromArgb(23, 45, 68);
+            btnClear.Location = new Point(828, 16);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(90, 42);
+            btnClear.TabIndex = 1;
+            btnClear.Text = "&Clear";
             btnClear.UseVisualStyleBackColor = false;
             btnClear.Click += OnClearClick;
-            btnClear.Name = "btnClear";
-            //
+            // 
             // btnGenerateQuote
-            //
+            // 
             btnGenerateQuote.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnGenerateQuote.Location = new Point(928, 16);
-            btnGenerateQuote.Size = new Size(168, 42);
-            btnGenerateQuote.Text = "&Generate quote";
-            btnGenerateQuote.TabIndex = 0;
-            btnGenerateQuote.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGenerateQuote.FlatStyle = FlatStyle.Flat;
             btnGenerateQuote.BackColor = Color.FromArgb(0, 122, 128);
-            btnGenerateQuote.ForeColor = Color.White;
-            btnGenerateQuote.FlatAppearance.BorderSize = 0;
             btnGenerateQuote.FlatAppearance.BorderColor = Color.FromArgb(186, 199, 213);
-            btnGenerateQuote.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 102, 108);
+            btnGenerateQuote.FlatAppearance.BorderSize = 0;
             btnGenerateQuote.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 82, 88);
+            btnGenerateQuote.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 102, 108);
+            btnGenerateQuote.FlatStyle = FlatStyle.Flat;
+            btnGenerateQuote.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            btnGenerateQuote.ForeColor = Color.White;
+            btnGenerateQuote.Location = new Point(928, 16);
+            btnGenerateQuote.Name = "btnGenerateQuote";
+            btnGenerateQuote.Size = new Size(168, 42);
+            btnGenerateQuote.TabIndex = 0;
+            btnGenerateQuote.Text = "&Generate quote";
             btnGenerateQuote.UseVisualStyleBackColor = false;
             btnGenerateQuote.Click += OnGenerateQuoteClick;
-            btnGenerateQuote.Name = "btnGenerateQuote";
-            //
+            // 
             // ctlInputErrorProvider
-            //
+            // 
             ctlInputErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             ctlInputErrorProvider.ContainerControl = this;
-            //
-            // frmMain
-            //
+            // 
+            // MainForm
+            // 
             AcceptButton = btnGenerateQuote;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 245, 248);
             ClientSize = new Size(1120, 800);
             Controls.Add(pnlRootLayout);
-            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Segoe UI", 9F);
             ForeColor = Color.FromArgb(23, 45, 68);
             MinimumSize = new Size(1060, 740);
-            Name = "frmMain";
+            Name = "MainForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ChargEm — Life Insurance Quotation";
-            pnlFooterDivider.ResumeLayout(false);
-            pnlFooterDivider.PerformLayout();
-            pnlFooter.ResumeLayout(false);
-            pnlFooter.PerformLayout();
-            pnlTotal.ResumeLayout(false);
-            pnlTotal.PerformLayout();
-            pnlQuoteAmountsLayout.ResumeLayout(false);
-            pnlQuoteAmountsLayout.PerformLayout();
-            pnlRiskLayout.ResumeLayout(false);
-            pnlRiskLayout.PerformLayout();
-            pnlQuotedCoverageLayout.ResumeLayout(false);
-            pnlQuotedCoverageLayout.PerformLayout();
-            pnlQuote.ResumeLayout(false);
-            pnlQuote.PerformLayout();
-            pnlValidation.ResumeLayout(false);
-            pnlValidation.PerformLayout();
-            pnlDiscountAmountsLayout.ResumeLayout(false);
-            pnlDiscountAmountsLayout.PerformLayout();
-            pnlDiscountOptions.ResumeLayout(false);
-            pnlDiscountOptions.PerformLayout();
-            pnlCoverage.ResumeLayout(false);
-            pnlCoverage.PerformLayout();
-            pnlMeasurementsLayout.ResumeLayout(false);
-            pnlMeasurementsLayout.PerformLayout();
+            pnlRootLayout.ResumeLayout(false);
+            pnlHeader.ResumeLayout(false);
+            pnlBody.ResumeLayout(false);
+            pnlContentLayout.ResumeLayout(false);
+            pnlInputLayout.ResumeLayout(false);
+            pnlCustomer.ResumeLayout(false);
             pnlNameLayout.ResumeLayout(false);
             pnlNameLayout.PerformLayout();
-            pnlCustomer.ResumeLayout(false);
-            pnlCustomer.PerformLayout();
-            pnlInputLayout.ResumeLayout(false);
-            pnlInputLayout.PerformLayout();
-            pnlContentLayout.ResumeLayout(false);
-            pnlContentLayout.PerformLayout();
-            pnlBody.ResumeLayout(false);
-            pnlBody.PerformLayout();
-            pnlHeader.ResumeLayout(false);
-            pnlHeader.PerformLayout();
-            pnlRootLayout.ResumeLayout(false);
-            pnlRootLayout.PerformLayout();
+            pnlMeasurementsLayout.ResumeLayout(false);
+            pnlMeasurementsLayout.PerformLayout();
+            pnlCoverage.ResumeLayout(false);
+            pnlCoverage.PerformLayout();
+            pnlDiscountOptions.ResumeLayout(false);
+            pnlDiscountOptions.PerformLayout();
+            pnlDiscountAmountsLayout.ResumeLayout(false);
+            pnlDiscountAmountsLayout.PerformLayout();
+            pnlValidation.ResumeLayout(false);
+            pnlQuote.ResumeLayout(false);
+            pnlQuotedCoverageLayout.ResumeLayout(false);
+            pnlRiskLayout.ResumeLayout(false);
+            pnlQuoteAmountsLayout.ResumeLayout(false);
+            pnlTotal.ResumeLayout(false);
+            pnlFooter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ctlInputErrorProvider).EndInit();
             ResumeLayout(false);
         }
@@ -1362,7 +1290,6 @@ namespace ChargeEm
         private Panel pnlFooter;
         private Panel pnlFooterDivider;
         private Label lblFooterHint;
-        private Button btnExit;
         private Button btnClear;
         private Button btnGenerateQuote;
         private ErrorProvider ctlInputErrorProvider;
