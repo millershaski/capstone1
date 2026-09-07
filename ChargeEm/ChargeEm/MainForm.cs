@@ -24,6 +24,9 @@ namespace ChargeEm
 {
     public partial class MainForm : Form
     {
+        const double SALES_TAX_RATE = 0.06;
+
+
         //  METHOD NAME: MainForm
         //  
         //  METHOD PURPOSE:
@@ -132,11 +135,21 @@ namespace ChargeEm
             lblCostPerThousand.Text = costPer1K.ToString("C2");
 
             if(TryCalculateInitialAnnualPremium(costPer1K, out double annualPremium) == true)
-                lblTotalAnnualPremium.Text = annualPremium.ToString("C2");            
+                lblInitialAnnualPremium.Text = annualPremium.ToString("C2");            
             else
-            {
-                lblTotalAnnualPremium.Text = "Invalid Coverage Amount";
-            }
+                lblInitialAnnualPremium.Text = "Invalid Coverage Amount";
+
+            if(TryCalculateDiscountAmount(annualPremium, out double discountAmount) == false)
+                lblDiscountAmount.Text = "Invalid Discount Amount";
+            else
+                lblDiscountAmount.Text = discountAmount.ToString("C2");
+
+            double premiumAfterDiscount = annualPremium - discountAmount;
+            lblPremiumAfterDiscount.Text = premiumAfterDiscount.ToString("C2");
+            lblSalesTax.Text = SALES_TAX_RATE.ToString("P2");
+
+            double totalAnnualPremium = premiumAfterDiscount * (1 + SALES_TAX_RATE);
+            lblTotalAnnualPremium.Text = totalAnnualPremium.ToString("C2");
         }
 
 
@@ -163,6 +176,46 @@ namespace ChargeEm
 
             annualPremium = (coverageAmount / 1000d) * costPer1K; // note that the coverage amount is divided by 1000 to convert it to units of 1K
             return true;
+        }
+
+
+
+        // Attempts to calculate the discount amount based on the annual premium and the selected discount type. Returns false if the inputted discount amount is invalid, true otherwise. If true, the calculated discount amount is assigned to the out parameter discountAmount.
+        bool TryCalculateDiscountAmount(double annualPremium, out double discountAmount)
+        {
+            discountAmount = 0;
+
+            int discountType = GetDiscountType();
+            if(discountType == 1) // percentage
+            {
+                if(TryGetDoubleFromTextBox(txtPercentageDiscount, out double percentageDiscount) == false || percentageDiscount < 0)
+                    return false;
+
+                discountAmount = annualPremium * (percentageDiscount / 100d);
+            }
+            else if(discountType == 2) // flat amount
+            {
+                if(TryGetDoubleFromTextBox(txtFlatDiscount, out double flatDiscount) == false || flatDiscount < 0)
+                    return false;
+
+                discountAmount = flatDiscount;
+                return true;
+            }
+
+            return true;
+        }
+
+
+
+        // Returns 0 if no discount type is selected, 1 if percentage discount is selected, and 2 if flat amount discount is selected.
+        int GetDiscountType()
+        {
+            if(rdoPercentageDiscount.Checked == true)
+                return 1;
+            else if(rdoFlatDiscount.Checked == true)
+                return 2;
+            else
+                return 0; // default to no discount if none are selected
         }
     }
 }

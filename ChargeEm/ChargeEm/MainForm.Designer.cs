@@ -89,11 +89,11 @@ namespace ChargeEm
             lblCostPerThousandCaption = new Label();
             lblCostPerThousand = new Label();
             lblAnnualPremiumCaption = new Label();
-            lblAnnualPremium = new Label();
+            lblInitialAnnualPremium = new Label();
             lblDiscountAmountCaption = new Label();
             lblDiscountAmount = new Label();
             lblSubtotalCaption = new Label();
-            lblSubtotal = new Label();
+            lblPremiumAfterDiscount = new Label();
             lblSalesTaxCaption = new Label();
             lblSalesTax = new Label();
             pnlTotal = new Panel();
@@ -886,11 +886,11 @@ namespace ChargeEm
             pnlQuoteAmountsLayout.Controls.Add(lblCostPerThousandCaption, 0, 0);
             pnlQuoteAmountsLayout.Controls.Add(lblCostPerThousand, 1, 0);
             pnlQuoteAmountsLayout.Controls.Add(lblAnnualPremiumCaption, 0, 1);
-            pnlQuoteAmountsLayout.Controls.Add(lblAnnualPremium, 1, 1);
+            pnlQuoteAmountsLayout.Controls.Add(lblInitialAnnualPremium, 1, 1);
             pnlQuoteAmountsLayout.Controls.Add(lblDiscountAmountCaption, 0, 2);
             pnlQuoteAmountsLayout.Controls.Add(lblDiscountAmount, 1, 2);
             pnlQuoteAmountsLayout.Controls.Add(lblSubtotalCaption, 0, 3);
-            pnlQuoteAmountsLayout.Controls.Add(lblSubtotal, 1, 3);
+            pnlQuoteAmountsLayout.Controls.Add(lblPremiumAfterDiscount, 1, 3);
             pnlQuoteAmountsLayout.Controls.Add(lblSalesTaxCaption, 0, 4);
             pnlQuoteAmountsLayout.Controls.Add(lblSalesTax, 1, 4);
             pnlQuoteAmountsLayout.Location = new Point(22, 264);
@@ -944,18 +944,18 @@ namespace ChargeEm
             lblAnnualPremiumCaption.Text = "Annual premium";
             lblAnnualPremiumCaption.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblAnnualPremium
+            // lblInitialAnnualPremium
             // 
-            lblAnnualPremium.Dock = DockStyle.Fill;
-            lblAnnualPremium.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblAnnualPremium.ForeColor = Color.FromArgb(23, 45, 68);
-            lblAnnualPremium.Location = new Point(261, 31);
-            lblAnnualPremium.Margin = new Padding(0);
-            lblAnnualPremium.Name = "lblAnnualPremium";
-            lblAnnualPremium.Size = new Size(175, 31);
-            lblAnnualPremium.TabIndex = 3;
-            lblAnnualPremium.Text = "—";
-            lblAnnualPremium.TextAlign = ContentAlignment.MiddleRight;
+            lblInitialAnnualPremium.Dock = DockStyle.Fill;
+            lblInitialAnnualPremium.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblInitialAnnualPremium.ForeColor = Color.FromArgb(23, 45, 68);
+            lblInitialAnnualPremium.Location = new Point(261, 31);
+            lblInitialAnnualPremium.Margin = new Padding(0);
+            lblInitialAnnualPremium.Name = "lblInitialAnnualPremium";
+            lblInitialAnnualPremium.Size = new Size(175, 31);
+            lblInitialAnnualPremium.TabIndex = 3;
+            lblInitialAnnualPremium.Text = "—";
+            lblInitialAnnualPremium.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblDiscountAmountCaption
             // 
@@ -996,18 +996,18 @@ namespace ChargeEm
             lblSubtotalCaption.Text = "Premium after discount";
             lblSubtotalCaption.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblSubtotal
+            // lblPremiumAfterDiscount
             // 
-            lblSubtotal.Dock = DockStyle.Fill;
-            lblSubtotal.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblSubtotal.ForeColor = Color.FromArgb(23, 45, 68);
-            lblSubtotal.Location = new Point(261, 93);
-            lblSubtotal.Margin = new Padding(0);
-            lblSubtotal.Name = "lblSubtotal";
-            lblSubtotal.Size = new Size(175, 31);
-            lblSubtotal.TabIndex = 7;
-            lblSubtotal.Text = "—";
-            lblSubtotal.TextAlign = ContentAlignment.MiddleRight;
+            lblPremiumAfterDiscount.Dock = DockStyle.Fill;
+            lblPremiumAfterDiscount.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblPremiumAfterDiscount.ForeColor = Color.FromArgb(23, 45, 68);
+            lblPremiumAfterDiscount.Location = new Point(261, 93);
+            lblPremiumAfterDiscount.Margin = new Padding(0);
+            lblPremiumAfterDiscount.Name = "lblPremiumAfterDiscount";
+            lblPremiumAfterDiscount.Size = new Size(175, 31);
+            lblPremiumAfterDiscount.TabIndex = 7;
+            lblPremiumAfterDiscount.Text = "—";
+            lblPremiumAfterDiscount.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblSalesTaxCaption
             // 
@@ -1255,11 +1255,11 @@ namespace ChargeEm
         private Label lblCostPerThousandCaption;
         private Label lblCostPerThousand;
         private Label lblAnnualPremiumCaption;
-        private Label lblAnnualPremium;
+        private Label lblInitialAnnualPremium;
         private Label lblDiscountAmountCaption;
         private Label lblDiscountAmount;
         private Label lblSubtotalCaption;
-        private Label lblSubtotal;
+        private Label lblPremiumAfterDiscount;
         private Label lblSalesTaxCaption;
         private Label lblSalesTax;
         private Panel pnlTotal;
