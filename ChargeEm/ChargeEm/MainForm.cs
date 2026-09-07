@@ -69,7 +69,10 @@ namespace ChargeEm
         void OnGenerateQuoteClick(object? sender, EventArgs e)
         {
             if(TryCalculateRiskFactor(out double riskFactor) == true)
-                UpdateRiskFactorOutput(riskFactor);
+            {
+                double costPer1K = CalculateCostPer1K(riskFactor);
+                RefreshOutput(riskFactor, costPer1K);
+            }
         }
 
 
@@ -102,10 +105,27 @@ namespace ChargeEm
         }
 
 
-
-        void UpdateRiskFactorOutput(double riskFactor)
+        // Calculates the cost per 1K based on the provided risk factor.  The formula for this calculation is provided in the specifications.
+        double CalculateCostPer1K(double riskFactor)
         {
-            uu
+            if(Math.Abs(riskFactor) > 10.0)
+            {
+                // Get the leftmost digit and use it as the riskFactor
+                while(Math.Abs(riskFactor) >= 10)
+                {
+                    riskFactor /= 10;
+                }
+            }
+
+            return (10.1 - riskFactor) * (1d / 10d);
+        }
+
+
+
+        // Updates all output fields on the form based on the calculated risk factor and cost per 1K.  This method is called after a successful calculation of the risk factor and cost per 1K.
+        void RefreshOutput(double riskFactor, double costPer1K)
+        {
+            lblRiskFactor
         }
     }
 }
