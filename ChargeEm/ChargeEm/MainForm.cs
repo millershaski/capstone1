@@ -68,6 +68,44 @@ namespace ChargeEm
         // --- -------- -------------------------------------------------
         void OnGenerateQuoteClick(object? sender, EventArgs e)
         {
+            if(TryCalculateRiskFactor(out double riskFactor) == true)
+                UpdateRiskFactorOutput(riskFactor);
+        }
+
+
+
+        // returns false if there's any invalid user input, true otherwise. If true, riskFactor is set to the calculated value.  If false, riskFactor is set to 0.
+        bool TryCalculateRiskFactor(out double riskFactor)
+        {
+            riskFactor = 0;
+            
+            if(TryGetDoubleFromTextBox(txtAge, out double age) == false)
+                return false;
+            if(TryGetDoubleFromTextBox(txtHeight, out double height) == false)
+                return false;
+            if(TryGetDoubleFromTextBox(txtWeight, out double weight) == false)
+                return false;
+
+            // note that the following formula was provided per the specifications
+            double numerator = age + Math.Sqrt((height * height) + (age * weight));
+            double denominator = weight - (4.01f * age);
+            riskFactor = numerator / denominator;
+
+            return true;
+        }
+
+
+        // Returns true if the text in the specified TextBox can be successfully parsed as a double. If true, the parsed double value is assigned to the out parameter value.
+        bool TryGetDoubleFromTextBox(TextBox someTextBox, out double value)
+        {
+            return double.TryParse(someTextBox.Text, out value);
+        }
+
+
+
+        void UpdateRiskFactorOutput(double riskFactor)
+        {
+            uu
         }
     }
 }
