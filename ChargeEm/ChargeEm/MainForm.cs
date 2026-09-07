@@ -94,7 +94,7 @@ namespace ChargeEm
 
             // note that the following formula was provided per the specifications
             double numerator = age + Math.Sqrt((height * height) + (age * weight));
-            double denominator = weight - (4.01f * age);
+            double denominator = weight - (4.01d * age);
             riskFactor = numerator / denominator;
 
             return true;
