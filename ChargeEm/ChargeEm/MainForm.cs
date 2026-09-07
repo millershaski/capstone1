@@ -130,6 +130,7 @@ namespace ChargeEm
         // Updates all output fields on the form based on the calculated risk factor and cost per 1K.  This method is called after a successful calculation of the risk factor and cost per 1K.
         void RefreshOutput(double riskFactor, double costPer1K)
         {
+            lblPreparedForCaption.Text = txtFirstName.Text + " " + txtLastName.Text;
             lblRiskFactor.Text = riskFactor.ToString("F2");
             lblRiskCategory.Text = GetRiskCategoryLabel(riskFactor);
             lblCostPerThousand.Text = costPer1K.ToString("C2");

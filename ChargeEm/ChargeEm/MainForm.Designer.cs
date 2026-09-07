@@ -35,7 +35,6 @@ namespace ChargeEm
             pnlHeader = new Panel();
             lblCompanyName = new Label();
             lblCompanySubtitle = new Label();
-            lblPageTitle = new Label();
             pnlBody = new Panel();
             pnlContentLayout = new TableLayoutPanel();
             pnlInputLayout = new TableLayoutPanel();
@@ -69,7 +68,6 @@ namespace ChargeEm
             txtPercentageDiscount = new TextBox();
             lblFlatDiscountCaption = new Label();
             txtFlatDiscount = new TextBox();
-            lblDiscountHint = new Label();
             pnlValidation = new Panel();
             lblValidationHeading = new Label();
             lblValidationMessage = new Label();
@@ -150,7 +148,6 @@ namespace ChargeEm
             pnlHeader.BackColor = Color.FromArgb(23, 45, 68);
             pnlHeader.Controls.Add(lblCompanyName);
             pnlHeader.Controls.Add(lblCompanySubtitle);
-            pnlHeader.Controls.Add(lblPageTitle);
             pnlHeader.Dock = DockStyle.Fill;
             pnlHeader.Location = new Point(0, 0);
             pnlHeader.Margin = new Padding(0);
@@ -179,18 +176,6 @@ namespace ChargeEm
             lblCompanySubtitle.TabIndex = 1;
             lblCompanySubtitle.Text = "Life Insurance Company";
             lblCompanySubtitle.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblPageTitle
-            // 
-            lblPageTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblPageTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblPageTitle.ForeColor = Color.FromArgb(214, 228, 240);
-            lblPageTitle.Location = new Point(770, 26);
-            lblPageTitle.Name = "lblPageTitle";
-            lblPageTitle.Size = new Size(326, 26);
-            lblPageTitle.TabIndex = 2;
-            lblPageTitle.Text = "Annual policy quotation";
-            lblPageTitle.TextAlign = ContentAlignment.MiddleRight;
             // 
             // pnlBody
             // 
@@ -491,7 +476,6 @@ namespace ChargeEm
             pnlCoverage.Controls.Add(txtCoverageAmount);
             pnlCoverage.Controls.Add(pnlDiscountOptions);
             pnlCoverage.Controls.Add(pnlDiscountAmountsLayout);
-            pnlCoverage.Controls.Add(lblDiscountHint);
             pnlCoverage.Dock = DockStyle.Fill;
             pnlCoverage.Location = new Point(0, 244);
             pnlCoverage.Margin = new Padding(0, 0, 0, 14);
@@ -656,18 +640,6 @@ namespace ChargeEm
             txtFlatDiscount.PlaceholderText = "e.g., 100";
             txtFlatDiscount.Size = new Size(261, 25);
             txtFlatDiscount.TabIndex = 1;
-            // 
-            // lblDiscountHint
-            // 
-            lblDiscountHint.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblDiscountHint.Font = new Font("Segoe UI", 8.5F);
-            lblDiscountHint.ForeColor = Color.FromArgb(88, 106, 126);
-            lblDiscountHint.Location = new Point(22, 227);
-            lblDiscountHint.Name = "lblDiscountHint";
-            lblDiscountHint.Size = new Size(522, 18);
-            lblDiscountHint.TabIndex = 3;
-            lblDiscountHint.Text = "Choose one discount type, or select No discount.";
-            lblDiscountHint.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlValidation
             // 
@@ -1167,7 +1139,7 @@ namespace ChargeEm
             Name = "MainForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ChargEm — Life Insurance Quotation";
+            Text = "ChargeEm - Life Insurance Quote";
             pnlRootLayout.ResumeLayout(false);
             pnlHeader.ResumeLayout(false);
             pnlBody.ResumeLayout(false);
@@ -1201,7 +1173,6 @@ namespace ChargeEm
         private Panel pnlHeader;
         private Label lblCompanyName;
         private Label lblCompanySubtitle;
-        private Label lblPageTitle;
         private Panel pnlBody;
         private TableLayoutPanel pnlContentLayout;
         private TableLayoutPanel pnlInputLayout;
@@ -1235,7 +1206,6 @@ namespace ChargeEm
         private TextBox txtPercentageDiscount;
         private Label lblFlatDiscountCaption;
         private TextBox txtFlatDiscount;
-        private Label lblDiscountHint;
         private Panel pnlValidation;
         private Label lblValidationHeading;
         private Label lblValidationMessage;
@@ -1266,11 +1236,11 @@ namespace ChargeEm
         private Label lblTotalCaption;
         private Label lblTotalAnnualPremium;
         private Label lblTotalHint;
-        private Label lblQuoteStatus;
         private Panel pnlFooter;
         private Panel pnlFooterDivider;
         private Label lblFooterHint;
         private Button btnGenerateQuote;
         private ErrorProvider ctlInputErrorProvider;
+        private Label lblQuoteStatus;
     }
 }
