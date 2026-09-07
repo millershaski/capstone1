@@ -8,17 +8,14 @@ namespace ChargeEm
         }
 
 
-        private void btnGenerateQuote_Click(object? sender, EventArgs e)
+
+        void OnGenerateQuoteClick(object? sender, EventArgs e)
         {
         }
 
 
-        private void btnClear_Click(object? sender, EventArgs e)
-        {
-        }
-
-
-        private void btnExit_Click(object? sender, EventArgs e)
+        
+        void OnClearClick(object? sender, EventArgs e)
         {
         }
     }

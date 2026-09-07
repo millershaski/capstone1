@@ -1184,7 +1184,7 @@ namespace ChargeEm
             btnExit.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 245, 249);
             btnExit.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 245, 248);
             btnExit.UseVisualStyleBackColor = false;
-            btnExit.Click += btnExit_Click;
+            //btnExit.Click += btnExit_Click;
             btnExit.Name = "btnExit";
             //
             // btnClear
@@ -1203,7 +1203,7 @@ namespace ChargeEm
             btnClear.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 245, 249);
             btnClear.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 245, 248);
             btnClear.UseVisualStyleBackColor = false;
-            btnClear.Click += btnClear_Click;
+            btnClear.Click += OnClearClick;
             btnClear.Name = "btnClear";
             //
             // btnGenerateQuote
@@ -1222,7 +1222,7 @@ namespace ChargeEm
             btnGenerateQuote.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 102, 108);
             btnGenerateQuote.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 82, 88);
             btnGenerateQuote.UseVisualStyleBackColor = false;
-            btnGenerateQuote.Click += btnGenerateQuote_Click;
+            btnGenerateQuote.Click += OnGenerateQuoteClick;
             btnGenerateQuote.Name = "btnGenerateQuote";
             //
             // ctlInputErrorProvider
