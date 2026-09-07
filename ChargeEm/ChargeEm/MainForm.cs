@@ -1,41 +1,46 @@
 // FILENAME: MainForm.cs
-//
 // WRITTEN BY: Tyler J. Millershaski
-//
+// DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+// 
 // PART OF PROJECT: ChargeEm
-//
-// PROJECT PURPOSE:
-//   The purpose of this project is to provide a simple and easy-to-use application for generating quotes for charging services. It allows users to input their service details and receive a quote based on the provided information.
-//
+// 
 // FILE PURPOSE:
-//   The purpose of this file is to define the MainForm class, which represents the main user interface of the ChargeEm application. It contains event handlers for generating quotes and clearing input fields.
+//  This file contains the main form and its associated processing logic.
+// 
+// CLASS NAME: MainForm
 //
-// COMPILATION NOTES:
-//   This project compiled normally in Visual Studio 2022 with .NET 6.0 SDK installed. It may require additional dependencies or configurations to compile successfully in other environments.
-//
-// LIBRARIES AND 3RD PARTY DEPENDENCIES:
-//   Microsoft.NetCore.App (included with .NET 6.0 SDK)
-//   Microsoft.WindowsDesktop.App (included with .NET 6.0 SDK)
-//
-// COMMAND LINE PARAMETER LIST (in Parameter Order):
-//   (None)
-//
-// ENVIRONMENTAL RETURNS:
-//    (Nothing)
-//
-// SAMPLE INVOCATION:
-//   This project can be launched from Visual Studio 2022 or by running the compiled executable file directly. No command line parameters are required. (note that the name of the executable file may vary based on the project configuration and build settings beyond the scope of this file.)
-//
-// GLOBAL VARIABLE LIST (Alphabetically):
-//   (None)
-//
+// CLASS PURPOSE:
+// This is the code-behind portion of the main application form.  This file 
+// contains the main form for the entire application.  All user input is gathered 
+// on this form.  The calculations which are performed by the application reside 
+// in this file as well.  Finally all generated output is contained here too.
+//      
+// CLASS VARIABLE DICTIONARY (in Alphabetical Order):
+//  
 // MODIFICATION HISTORY:
-// WHO          WHEN            WHAT
-// (SEE SOURCE CONTROL)
+// WHO   WHEN   WHAT
+// --- -------- -------------------------------------------------
 namespace ChargeEm
 {
     public partial class MainForm : Form
     {
+        //  METHOD NAME: MainForm
+        //  
+        //  METHOD PURPOSE:
+        //   This is the main entry point for the application start up.
+        //  	 
+        //  PARAMETERS LIST (in Parameter Order):
+        //   (None)
+        //  	
+        //  RETURNS:
+        //   (Nothing)
+        //  	
+        //  LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
+        //   (None)
+        //  
+        // MODIFICATION HISTORY:
+        // WHO   WHEN   WHAT
+        // --- -------- -------------------------------------------------
         public MainForm()
         {
             InitializeComponent();
@@ -43,13 +48,25 @@ namespace ChargeEm
 
 
 
+        //  METHOD NAME: OnGenerateQuoteClick
+        //  
+        //  METHOD PURPOSE:
+        //   This method is the event handler for the Generate Quote button click event.  It is responsible for gathering user input, performing calculations, and generating the output quote.
+        //  	 
+        //  PARAMETERS LIST (in Parameter Order):
+        //   object? sender - The source of the event (the button that was clicked).
+        //   EventArgs e - The event data associated with the button click event.
+        //  	
+        //  RETURNS:
+        //   (Nothing)
+        //  	
+        //  LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
+        //   (None)
+        //  
+        // MODIFICATION HISTORY:
+        // WHO   WHEN   WHAT
+        // --- -------- -------------------------------------------------
         void OnGenerateQuoteClick(object? sender, EventArgs e)
-        {
-        }
-
-
-        
-        void OnClearClick(object? sender, EventArgs e)
         {
         }
     }

@@ -104,7 +104,6 @@ namespace ChargeEm
             pnlFooter = new Panel();
             pnlFooterDivider = new Panel();
             lblFooterHint = new Label();
-            btnClear = new Button();
             btnGenerateQuote = new Button();
             ctlInputErrorProvider = new ErrorProvider(components);
             pnlRootLayout.SuspendLayout();
@@ -1102,7 +1101,6 @@ namespace ChargeEm
             pnlFooter.BackColor = Color.White;
             pnlFooter.Controls.Add(pnlFooterDivider);
             pnlFooter.Controls.Add(lblFooterHint);
-            pnlFooter.Controls.Add(btnClear);
             pnlFooter.Controls.Add(btnGenerateQuote);
             pnlFooter.Dock = DockStyle.Fill;
             pnlFooter.Location = new Point(0, 726);
@@ -1130,24 +1128,6 @@ namespace ChargeEm
             lblFooterHint.TabIndex = 1;
             lblFooterHint.Text = "Review customer details before generating a quote.";
             lblFooterHint.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // btnClear
-            // 
-            btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnClear.BackColor = Color.White;
-            btnClear.FlatAppearance.BorderColor = Color.FromArgb(186, 199, 213);
-            btnClear.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 245, 248);
-            btnClear.FlatAppearance.MouseOverBackColor = Color.FromArgb(241, 245, 249);
-            btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            btnClear.ForeColor = Color.FromArgb(23, 45, 68);
-            btnClear.Location = new Point(828, 16);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(90, 42);
-            btnClear.TabIndex = 1;
-            btnClear.Text = "&Clear";
-            btnClear.UseVisualStyleBackColor = false;
-            btnClear.Click += OnClearClick;
             // 
             // btnGenerateQuote
             // 
@@ -1290,7 +1270,6 @@ namespace ChargeEm
         private Panel pnlFooter;
         private Panel pnlFooterDivider;
         private Label lblFooterHint;
-        private Button btnClear;
         private Button btnGenerateQuote;
         private ErrorProvider ctlInputErrorProvider;
     }
