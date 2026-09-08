@@ -37,7 +37,7 @@ namespace ChargeEm
 
         // METHOD NAME: MainForm (CONSTRUCTOR)
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Construct the main form and initialize the controls and layout defined in the
@@ -64,7 +64,7 @@ namespace ChargeEm
 
         // METHOD NAME: OnLoad
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Run the inherited form-load behavior, then connect each numeric input text box to
@@ -99,7 +99,7 @@ namespace ChargeEm
 
         // METHOD NAME: ResetWarning
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Restore the sending text box to a white background when it raises a KeyPress event.
@@ -131,7 +131,7 @@ namespace ChargeEm
 
         // METHOD NAME: OnGenerateQuoteClick
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Clear the previous quote, attempt to calculate the customer risk factor, and
@@ -168,7 +168,7 @@ namespace ChargeEm
 
         // METHOD NAME: ClearAllOutput
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Replace every quote output value with a dash so that previous quote details are not
@@ -207,7 +207,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryCalculateRiskFactor
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Parse the age, height, and weight inputs, then evaluate the risk-factor formula
@@ -262,7 +262,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetDoubleFromTextBox_DisplayError
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Attempt to parse the specified text box as a double and highlight that text box if
@@ -296,7 +296,7 @@ namespace ChargeEm
 
         // METHOD NAME: DisplayInputError
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Mark an input text box with a light-pink background and request keyboard focus so
@@ -328,7 +328,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetDoubleFromTextBox
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Attempt to convert the text box contents to a double using the default parsing rules
@@ -361,7 +361,7 @@ namespace ChargeEm
 
         // METHOD NAME: CalculateCostPerCoverage
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Normalize the risk-factor magnitude when necessary, then apply the assigned pricing
@@ -405,7 +405,7 @@ namespace ChargeEm
 
         // METHOD NAME: RefreshOutput
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Fill the quote labels with the customer name, original risk factor, risk category,
@@ -478,7 +478,7 @@ namespace ChargeEm
 
         // METHOD NAME: GetCustomerName
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Build the displayed customer name from the first-name and last-name inputs, trimming
@@ -513,7 +513,7 @@ namespace ChargeEm
 
         // METHOD NAME: GetRiskCategoryLabel
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Choose the text label used to describe the calculated risk factor.
@@ -543,7 +543,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetCoverageAmount
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Parse the policy coverage input and reject values that compare as zero or negative.
@@ -581,7 +581,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryCalculateInitialAnnualPremium
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Multiply the requested coverage by the per-dollar coverage multiplier to obtain the
@@ -615,7 +615,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryCalculateDiscountAmount
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Select the appropriate percentage or flat-dollar discount calculation according to
@@ -654,7 +654,7 @@ namespace ChargeEm
 
         // METHOD NAME: GetDiscountType
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Read the percentage and flat-discount radio buttons and return the code identifying
@@ -691,7 +691,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetPercentageDiscountAmount
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Parse the percentage input, reject values below zero or above 100, and convert an
@@ -735,7 +735,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetFlatDiscountAmount
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: See version control.
+        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
         //
         // METHOD PURPOSE:
         //  Parse the flat-dollar discount input, reject negative values, and cap the accepted

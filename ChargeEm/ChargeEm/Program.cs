@@ -33,7 +33,6 @@
 // MODIFICATION HISTORY:
 // WHO          WHEN            WHAT
 // (SEE VERSION CONTROL)
-
 namespace ChargeEm
 {
     internal static class Program
