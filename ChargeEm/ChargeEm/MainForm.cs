@@ -503,10 +503,18 @@ namespace ChargeEm
         // Codex   08 Sep 2026  Documented existing behavior; no code changes.
         string GetCustomerName()
         {
-            if(String.IsNullOrEmpty(txtFirstName.Text) && String.IsNullOrEmpty(txtLastName.Text))
+            if(String.IsNullOrWhiteSpace(txtFirstName.Text) && String.IsNullOrWhiteSpace(txtLastName.Text)) // if both last name and first name are blank, return a default string (even if middle initial is populated)
                 return "(No Name Provided)";
 
-            return (txtFirstName.Text + " " + txtLastName.Text).Trim(); // trim to remove any leading or trailing whitespace in case either name is null or has leading/trailing whitespace
+            string fullName = "";
+            if(String.IsNullOrWhiteSpace(txtFirstName.Text) == false)
+                fullName += txtFirstName.Text.Trim();
+            if(String.IsNullOrWhiteSpace(txtMiddleInitial.Text) == false)
+                fullName += " " + txtMiddleInitial.Text.Trim();
+            if(String.IsNullOrWhiteSpace(txtLastName.Text) == false)
+                fullName += " " + txtLastName.Text.Trim();
+
+            return fullName.Trim(); // trim to remove any leading or trailing whitespace in case either name is null or has leading/trailing whitespace
         }
 
 
