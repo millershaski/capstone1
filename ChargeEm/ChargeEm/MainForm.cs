@@ -24,7 +24,7 @@ namespace ChargeEm
 {
     public partial class MainForm : Form
     {
-        const double SALES_TAX_RATE = 0.06;
+        const double SALES_TAX_RATE = 0.06; // This is the rate for Michigan
 
 
         //  METHOD NAME: MainForm
@@ -50,6 +50,28 @@ namespace ChargeEm
         }
 
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // Subscribe to the KeyPress event for each TextBox to reset the warning when the user starts typing
+            txtAge.KeyPress += ResetWarning;
+            txtHeight.KeyPress += ResetWarning;
+            txtWeight.KeyPress += ResetWarning;
+            txtCoverageAmount.KeyPress += ResetWarning;
+            txtPercentageDiscount.KeyPress += ResetWarning;
+            txtFlatDiscount.KeyPress += ResetWarning;
+        }
+
+
+
+        void ResetWarning(object? sender, KeyPressEventArgs e)
+        {
+            if(sender != null && sender is TextBox textBox)
+                textBox.BackColor = Color.White;
+        }
+
+
 
         //  METHOD NAME: OnGenerateQuoteClick
         //  
@@ -71,11 +93,32 @@ namespace ChargeEm
         // --- -------- -------------------------------------------------
         void OnGenerateQuoteClick(object? sender, EventArgs e)
         {
+            ClearAllOutput(); // This method is called before generating a new quote to ensure that previous output is not incorrectly associated with the new quote.
+
             if(TryCalculateRiskFactor(out double riskFactor) == true)
             {
-                double costPer1K = CalculateCostPer1K(riskFactor);
-                RefreshOutput(riskFactor, costPer1K);
+                double costPerCoverage = CalculateCostPerCoverage(riskFactor);
+                RefreshOutput(riskFactor, costPerCoverage);
             }
+        }
+
+
+
+        // Clears all output fields on the form. 
+        void ClearAllOutput()
+        {
+            string clearString = "-"; // A non-empty clear string tends to be better than an empty one.
+
+            lblCustomerName.Text = clearString;
+            lblRiskFactor.Text = clearString;
+            lblRiskCategory.Text = clearString;
+            lblCostPerThousand.Text = clearString;
+            lblInitialAnnualPremium.Text = clearString;
+            lblDiscountAmount.Text = clearString;
+            lblPremiumAfterDiscount.Text = clearString;
+            lblSalesTax.Text = clearString;
+            lblTotalAnnualPremium.Text = clearString;
+            lblCoverageAmount.Text = clearString;
         }
 
 
@@ -84,12 +127,12 @@ namespace ChargeEm
         bool TryCalculateRiskFactor(out double riskFactor)
         {
             riskFactor = 0;
-            
-            if(TryGetDoubleFromTextBox(txtAge, out double age) == false)
+
+            if(TryGetDoubleFromTextBox_DisplayError(txtAge, out double age) == false)
                 return false;
-            if(TryGetDoubleFromTextBox(txtHeight, out double height) == false)
+            if(TryGetDoubleFromTextBox_DisplayError(txtHeight, out double height) == false)
                 return false;
-            if(TryGetDoubleFromTextBox(txtWeight, out double weight) == false)
+            if(TryGetDoubleFromTextBox_DisplayError(txtWeight, out double weight) == false)
                 return false;
 
             // note that the following formula was provided per the specifications
@@ -103,15 +146,37 @@ namespace ChargeEm
 
 
         // Returns true if the text in the specified TextBox can be successfully parsed as a double. If true, the parsed double value is assigned to the out parameter value.
-        bool TryGetDoubleFromTextBox(TextBox someTextBox, out double value)
+        // Also displays feedback to the user if the TextBox's contents cannot be parsed into a double.
+        bool TryGetDoubleFromTextBox_DisplayError(TextBox someTextBox, out double value)
         {
-            return double.TryParse(someTextBox.Text, out value);
+            if(TryGetDoubleFromTextBox(someTextBox, out value) == true)
+                return true;
+
+            DisplayInputError(someTextBox); 
+            return false;
         }
 
 
 
-        // Calculates the cost per 1K based on the provided risk factor.  The formula for this calculation is provided in the specifications.
-        double CalculateCostPer1K(double riskFactor)
+        // Sets BackColor to LightPink and focuses on the TextBox. Note that a TextBox can subscribe to ResetWarning as appropriate (such as upon KeyPress) in order to automatically clear the displayed error
+        void DisplayInputError(TextBox someTextBox)
+        {
+            someTextBox.BackColor = Color.LightPink;
+            someTextBox.Focus();
+        }
+
+
+
+        // Returns true if the text in the specified TextBox can be successfully parsed as a double. If true, the parsed double value is assigned to the out parameter value.
+        bool TryGetDoubleFromTextBox(TextBox someTextBox, out double value)
+        {
+            return double.TryParse(someTextBox.Text, out value);            
+        }
+
+
+
+        // Calculates the cost per coverage based on the provided risk factor. The formula for this calculation is provided in the specifications.
+        double CalculateCostPerCoverage(double riskFactor)
         {
             if(Math.Abs(riskFactor) > 10.0)
             {
@@ -122,21 +187,26 @@ namespace ChargeEm
                 }
             }
 
-            return (10.1 - riskFactor) * (1d / 10d);
+            return (10.1 - Math.Abs(riskFactor)) / 10d;
         }
 
 
 
-        // Updates all output fields on the form based on the calculated risk factor and cost per 1K.  This method is called after a successful calculation of the risk factor and cost per 1K.
-        void RefreshOutput(double riskFactor, double costPer1K)
+        // Updates all output fields on the form based on the calculated risk factor and cost per 1K. 
+        void RefreshOutput(double riskFactor, double costPerCoverage)
         {
-            lblPreparedForCaption.Text = txtFirstName.Text + " " + txtLastName.Text;
+            lblCustomerName.Text = GetCustomerName();
             lblRiskFactor.Text = riskFactor.ToString("F2");
             lblRiskCategory.Text = GetRiskCategoryLabel(riskFactor);
-            lblCostPerThousand.Text = costPer1K.ToString("C2");
+            lblCostPerThousand.Text = (costPerCoverage * 1000).ToString("C2"); // note that it's displayed to the user as "per 1000" so we multiply by 1000 to get the correct value to display
 
-            if(TryCalculateInitialAnnualPremium(costPer1K, out double annualPremium) == true)
-                lblInitialAnnualPremium.Text = annualPremium.ToString("C2");            
+            if(TryGetCoverageAmount(out double coverageAmount) == true)
+                lblCoverageAmount.Text = coverageAmount.ToString("C2");
+            else
+                lblCoverageAmount.Text = "Invalid Coverage Amount";
+
+            if(TryCalculateInitialAnnualPremium(coverageAmount, costPerCoverage, out double annualPremium) == true)
+                lblInitialAnnualPremium.Text = annualPremium.ToString("C2");
             else
                 lblInitialAnnualPremium.Text = "Invalid Coverage Amount";
 
@@ -147,10 +217,23 @@ namespace ChargeEm
 
             double premiumAfterDiscount = annualPremium - discountAmount;
             lblPremiumAfterDiscount.Text = premiumAfterDiscount.ToString("C2");
-            lblSalesTax.Text = SALES_TAX_RATE.ToString("P2");
 
-            double totalAnnualPremium = premiumAfterDiscount * (1 + SALES_TAX_RATE);
+            double salesTaxAmount = premiumAfterDiscount * SALES_TAX_RATE;
+            lblSalesTax.Text = salesTaxAmount.ToString("C2");
+
+            double totalAnnualPremium = premiumAfterDiscount + salesTaxAmount;
             lblTotalAnnualPremium.Text = totalAnnualPremium.ToString("C2");
+        }
+
+
+
+        // Returns the full name of the customer based on the first and last name input fields. If both fields are empty, returns "(No Name Provided)".
+        string GetCustomerName()
+        {
+            if(String.IsNullOrEmpty(txtFirstName.Text) && String.IsNullOrEmpty(txtLastName.Text))
+                return "(No Name Provided)";
+
+            return (txtFirstName.Text + " " + txtLastName.Text).Trim(); // trim to remove any leading or trailing whitespace in case either name is null or has leading/trailing whitespace
         }
 
 
@@ -166,16 +249,23 @@ namespace ChargeEm
 
 
 
-        // Attempts to calculate the initial (prior to any discounts or fees) annual premium based on the costPer1K and the allotted coverage amount. Returns false if the coverage amount is invalid (e.g., negative or zero), true otherwise. If true, the calculated annual premium is assigned to the out parameter annualPremium.
-        bool TryCalculateInitialAnnualPremium(double costPer1K, out double annualPremium)
+        bool TryGetCoverageAmount(out double coverageAmount)
         {
-            if(TryGetDoubleFromTextBox(txtCoverageAmount, out double coverageAmount) == false || coverageAmount <= 0)
+            if(TryGetDoubleFromTextBox(txtCoverageAmount, out coverageAmount) == false || coverageAmount <= 0)
             {
-                annualPremium = 0;
+                coverageAmount = 0;
+                DisplayInputError(txtCoverageAmount);
                 return false;
             }
+            return true;
+        }
 
-            annualPremium = (coverageAmount / 1000d) * costPer1K; // note that the coverage amount is divided by 1000 to convert it to units of 1K
+
+
+        // Attempts to calculate the initial (prior to any discounts or fees) annual premium based on the costPerCoverage and the allotted coverage amount. Returns false if the coverage amount is invalid (e.g., negative or zero), true otherwise. If true, the calculated annual premium is assigned to the out parameter annualPremium.
+        bool TryCalculateInitialAnnualPremium(double coverageAmount, double costPerCoverage, out double annualPremium)
+        { 
+            annualPremium = coverageAmount * costPerCoverage;
             return true;
         }
 
@@ -188,20 +278,9 @@ namespace ChargeEm
 
             int discountType = GetDiscountType();
             if(discountType == 1) // percentage
-            {
-                if(TryGetDoubleFromTextBox(txtPercentageDiscount, out double percentageDiscount) == false || percentageDiscount < 0)
-                    return false;
-
-                discountAmount = annualPremium * (percentageDiscount / 100d);
-            }
+                return TryGetPercentageDiscountAmount(annualPremium, out discountAmount);            
             else if(discountType == 2) // flat amount
-            {
-                if(TryGetDoubleFromTextBox(txtFlatDiscount, out double flatDiscount) == false || flatDiscount < 0)
-                    return false;
-
-                discountAmount = flatDiscount;
-                return true;
-            }
+                return TryGetFlatDiscountAmount(annualPremium, out discountAmount);
 
             return true;
         }
@@ -217,6 +296,36 @@ namespace ChargeEm
                 return 2;
             else
                 return 0; // default to no discount if none are selected
+        }
+
+
+
+        bool TryGetPercentageDiscountAmount(double annualPremium, out double discountAmount)
+        {
+            discountAmount = 0;
+            if(TryGetDoubleFromTextBox(txtPercentageDiscount, out double percentageDiscount) == false || percentageDiscount < 0 || percentageDiscount > 100)
+            {
+                DisplayInputError(txtPercentageDiscount);
+                return false;
+            }
+
+            discountAmount = annualPremium * (percentageDiscount / 100d);
+            return true;
+        }
+
+
+
+        bool TryGetFlatDiscountAmount(double annualPremium, out double discountAmount)
+        {
+            discountAmount = 0;
+            if(TryGetDoubleFromTextBox(txtFlatDiscount, out double flatDiscount) == false || flatDiscount < 0)
+            {
+                DisplayInputError(txtFlatDiscount);
+                return false;
+            }
+
+            discountAmount = Math.Min(flatDiscount, annualPremium); // ensures that the discount amount does not exceed the annual premium
+            return true;
         }
     }
 }

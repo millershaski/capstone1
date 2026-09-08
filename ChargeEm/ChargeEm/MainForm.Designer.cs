@@ -98,10 +98,8 @@ namespace ChargeEm
             lblTotalCaption = new Label();
             lblTotalAnnualPremium = new Label();
             lblTotalHint = new Label();
-            lblQuoteStatus = new Label();
             pnlFooter = new Panel();
             pnlFooterDivider = new Panel();
-            lblFooterHint = new Label();
             btnGenerateQuote = new Button();
             ctlInputErrorProvider = new ErrorProvider(components);
             pnlRootLayout.SuspendLayout();
@@ -163,7 +161,7 @@ namespace ChargeEm
             lblCompanyName.Name = "lblCompanyName";
             lblCompanyName.Size = new Size(360, 38);
             lblCompanyName.TabIndex = 0;
-            lblCompanyName.Text = "ChargEm";
+            lblCompanyName.Text = "ChargeEm";
             lblCompanyName.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblCompanySubtitle
@@ -688,7 +686,6 @@ namespace ChargeEm
             pnlQuote.Controls.Add(pnlRiskLayout);
             pnlQuote.Controls.Add(pnlQuoteAmountsLayout);
             pnlQuote.Controls.Add(pnlTotal);
-            pnlQuote.Controls.Add(lblQuoteStatus);
             pnlQuote.Dock = DockStyle.Fill;
             pnlQuote.Location = new Point(588, 0);
             pnlQuote.Margin = new Padding(0);
@@ -730,7 +727,7 @@ namespace ChargeEm
             lblCustomerName.Name = "lblCustomerName";
             lblCustomerName.Size = new Size(436, 38);
             lblCustomerName.TabIndex = 2;
-            lblCustomerName.Text = "—";
+            lblCustomerName.Text = "-";
             lblCustomerName.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlQuotedCoverageLayout
@@ -772,7 +769,7 @@ namespace ChargeEm
             lblCoverageAmount.Name = "lblCoverageAmount";
             lblCoverageAmount.Size = new Size(240, 28);
             lblCoverageAmount.TabIndex = 1;
-            lblCoverageAmount.Text = "—";
+            lblCoverageAmount.Text = "-";
             lblCoverageAmount.TextAlign = ContentAlignment.MiddleRight;
             // 
             // pnlRiskLayout
@@ -833,7 +830,7 @@ namespace ChargeEm
             lblRiskFactor.Name = "lblRiskFactor";
             lblRiskFactor.Size = new Size(204, 46);
             lblRiskFactor.TabIndex = 2;
-            lblRiskFactor.Text = "—";
+            lblRiskFactor.Text = "-";
             lblRiskFactor.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblRiskCategory
@@ -846,7 +843,7 @@ namespace ChargeEm
             lblRiskCategory.Name = "lblRiskCategory";
             lblRiskCategory.Size = new Size(204, 46);
             lblRiskCategory.TabIndex = 3;
-            lblRiskCategory.Text = "—";
+            lblRiskCategory.Text = "-";
             lblRiskCategory.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlQuoteAmountsLayout
@@ -900,7 +897,7 @@ namespace ChargeEm
             lblCostPerThousand.Name = "lblCostPerThousand";
             lblCostPerThousand.Size = new Size(175, 31);
             lblCostPerThousand.TabIndex = 1;
-            lblCostPerThousand.Text = "—";
+            lblCostPerThousand.Text = "-";
             lblCostPerThousand.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblAnnualPremiumCaption
@@ -926,7 +923,7 @@ namespace ChargeEm
             lblInitialAnnualPremium.Name = "lblInitialAnnualPremium";
             lblInitialAnnualPremium.Size = new Size(175, 31);
             lblInitialAnnualPremium.TabIndex = 3;
-            lblInitialAnnualPremium.Text = "—";
+            lblInitialAnnualPremium.Text = "-";
             lblInitialAnnualPremium.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblDiscountAmountCaption
@@ -952,7 +949,7 @@ namespace ChargeEm
             lblDiscountAmount.Name = "lblDiscountAmount";
             lblDiscountAmount.Size = new Size(175, 31);
             lblDiscountAmount.TabIndex = 5;
-            lblDiscountAmount.Text = "—";
+            lblDiscountAmount.Text = "-";
             lblDiscountAmount.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblSubtotalCaption
@@ -978,7 +975,7 @@ namespace ChargeEm
             lblPremiumAfterDiscount.Name = "lblPremiumAfterDiscount";
             lblPremiumAfterDiscount.Size = new Size(175, 31);
             lblPremiumAfterDiscount.TabIndex = 7;
-            lblPremiumAfterDiscount.Text = "—";
+            lblPremiumAfterDiscount.Text = "-";
             lblPremiumAfterDiscount.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblSalesTaxCaption
@@ -1004,7 +1001,7 @@ namespace ChargeEm
             lblSalesTax.Name = "lblSalesTax";
             lblSalesTax.Size = new Size(175, 32);
             lblSalesTax.TabIndex = 9;
-            lblSalesTax.Text = "—";
+            lblSalesTax.Text = "-";
             lblSalesTax.TextAlign = ContentAlignment.MiddleRight;
             // 
             // pnlTotal
@@ -1041,7 +1038,7 @@ namespace ChargeEm
             lblTotalAnnualPremium.Name = "lblTotalAnnualPremium";
             lblTotalAnnualPremium.Size = new Size(404, 40);
             lblTotalAnnualPremium.TabIndex = 1;
-            lblTotalAnnualPremium.Text = "—";
+            lblTotalAnnualPremium.Text = "-";
             lblTotalAnnualPremium.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTotalHint
@@ -1056,23 +1053,10 @@ namespace ChargeEm
             lblTotalHint.Text = "Including discount and sales tax";
             lblTotalHint.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblQuoteStatus
-            // 
-            lblQuoteStatus.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblQuoteStatus.Font = new Font("Segoe UI", 9F);
-            lblQuoteStatus.ForeColor = Color.FromArgb(88, 106, 126);
-            lblQuoteStatus.Location = new Point(22, 561);
-            lblQuoteStatus.Name = "lblQuoteStatus";
-            lblQuoteStatus.Size = new Size(436, 20);
-            lblQuoteStatus.TabIndex = 7;
-            lblQuoteStatus.Text = "No quote generated.";
-            lblQuoteStatus.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // pnlFooter
             // 
             pnlFooter.BackColor = Color.White;
             pnlFooter.Controls.Add(pnlFooterDivider);
-            pnlFooter.Controls.Add(lblFooterHint);
             pnlFooter.Controls.Add(btnGenerateQuote);
             pnlFooter.Dock = DockStyle.Fill;
             pnlFooter.Location = new Point(0, 726);
@@ -1089,17 +1073,6 @@ namespace ChargeEm
             pnlFooterDivider.Name = "pnlFooterDivider";
             pnlFooterDivider.Size = new Size(1120, 1);
             pnlFooterDivider.TabIndex = 0;
-            // 
-            // lblFooterHint
-            // 
-            lblFooterHint.Font = new Font("Segoe UI", 9F);
-            lblFooterHint.ForeColor = Color.FromArgb(88, 106, 126);
-            lblFooterHint.Location = new Point(24, 27);
-            lblFooterHint.Name = "lblFooterHint";
-            lblFooterHint.Size = new Size(520, 20);
-            lblFooterHint.TabIndex = 1;
-            lblFooterHint.Text = "Review customer details before generating a quote.";
-            lblFooterHint.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnGenerateQuote
             // 
@@ -1238,9 +1211,7 @@ namespace ChargeEm
         private Label lblTotalHint;
         private Panel pnlFooter;
         private Panel pnlFooterDivider;
-        private Label lblFooterHint;
         private Button btnGenerateQuote;
         private ErrorProvider ctlInputErrorProvider;
-        private Label lblQuoteStatus;
     }
 }
