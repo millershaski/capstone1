@@ -30,7 +30,6 @@ namespace ChargeEm
 
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             pnlRootLayout = new TableLayoutPanel();
             pnlHeader = new Panel();
             lblCompanyName = new Label();
@@ -98,7 +97,6 @@ namespace ChargeEm
             pnlFooter = new Panel();
             pnlFooterDivider = new Panel();
             btnGenerateQuote = new Button();
-            ctlInputErrorProvider = new ErrorProvider(components);
             pnlRootLayout.SuspendLayout();
             pnlHeader.SuspendLayout();
             pnlBody.SuspendLayout();
@@ -116,7 +114,6 @@ namespace ChargeEm
             pnlQuoteAmountsLayout.SuspendLayout();
             pnlTotal.SuspendLayout();
             pnlFooter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ctlInputErrorProvider).BeginInit();
             SuspendLayout();
             // 
             // pnlRootLayout
@@ -1052,11 +1049,6 @@ namespace ChargeEm
             btnGenerateQuote.UseVisualStyleBackColor = false;
             btnGenerateQuote.Click += OnGenerateQuoteClick;
             // 
-            // ctlInputErrorProvider
-            // 
-            ctlInputErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
-            ctlInputErrorProvider.ContainerControl = this;
-            // 
             // MainForm
             // 
             AcceptButton = btnGenerateQuote;
@@ -1094,7 +1086,6 @@ namespace ChargeEm
             pnlQuoteAmountsLayout.ResumeLayout(false);
             pnlTotal.ResumeLayout(false);
             pnlFooter.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ctlInputErrorProvider).EndInit();
             ResumeLayout(false);
         }
 
@@ -1167,6 +1158,5 @@ namespace ChargeEm
         private Panel pnlFooter;
         private Panel pnlFooterDivider;
         private Button btnGenerateQuote;
-        private ErrorProvider ctlInputErrorProvider;
     }
 }
