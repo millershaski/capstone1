@@ -104,17 +104,14 @@ namespace ChargeEm
         //    This clears the visual warning without validating the new contents.
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  sender (object?) - The control that raised the event; null or non-TextBox senders
-        //    are ignored.
-        //  e (KeyPressEventArgs) - Information about the keypress; not used by this
-        //    implementation.
+        //  sender (object?) - The control that raised the event. Null or non-TextBox senders are ignored.
+        //  e (KeyPressEventArgs) - Information about the keypress (not used) 
         //
         // RETURNS:
         //  (Nothing; void.)
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  textBox (TextBox) - The sender after the pattern match confirms that it is a text
-        //    box.
+        //  textBox (TextBox) - The sender after the pattern match confirms that it is a textbox.
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
@@ -136,17 +133,15 @@ namespace ChargeEm
         //    generate the new quote output if the measurement values can be parsed.
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  sender (object?) - The control that raised the click event; not used directly.
-        //  e (EventArgs) - Click event information; not used directly.
+        //  sender (object?) - The control that raised the click event (not used)
+        //  e (EventArgs) - Click event information (not used)
         //
         // RETURNS:
         //  (Nothing; void.)
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  costPerCoverage (double) - The premium multiplier per dollar of requested policy
-        //    coverage.
-        //  riskFactor (double) - The original risk factor returned through the out parameter of
-        //    TryCalculateRiskFactor.
+        //  costPerCoverage (double) - The multiplier per dollar of requested policy coverage.
+        //  riskFactor (double) - The risk factor returned through TryCalculateRiskFactor.
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
@@ -170,7 +165,7 @@ namespace ChargeEm
         //
         // METHOD PURPOSE:
         //  Replace every quote output value with a dash so that previous quote details are not
-        //    displayed as part of the next calculation. Input text boxes are not cleared.
+        //    displayed as part of the current quote. Input text boxes are not cleared.
         //
         // PARAMETERS LIST (in Parameter Order):
         //  (None)
@@ -179,8 +174,7 @@ namespace ChargeEm
         //  (Nothing; void.)
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  clearString (string) - The dash used as the placeholder for all cleared output
-        //    labels.
+        //  clearString (string) - The dash used as the placeholder for all cleared output labels.
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
@@ -208,27 +202,21 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Parse the age, height, and weight inputs, then evaluate the risk-factor formula
-        //    supplied in the assignment. Highlight the first input that cannot be parsed.
+        //  Parse the age, height, and weight inputs, then calculate the risk factor.
+        //    (Highlights the first input TextBox that cannot be parsed.)
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  riskFactor (out double) - Receives the calculated risk factor after parsing
-        //    succeeds; remains zero if an input cannot be parsed.
+        //  riskFactor (out double) - Stores the calculated risk factor upon success. Set to zero if any input parsing fails.
         //
         // RETURNS:
-        //  bool - False when any measurement cannot be parsed; true after the formula is
-        //    evaluated. A true result does not guarantee a finite risk factor.
+        //  bool - False when any input cannot be parsed. True otherwise.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
         //  age (double) - The customer age in years, parsed from txtAge.
-        //  denominator (double) - The divisor weight - (4.01 * age) in the supplied formula.
+        //  denominator (double) - The bottom portion of the provided formula.
         //  height (double) - The customer height in inches, parsed from txtHeight.
-        //  numerator (double) - The expression age + sqrt(height squared + age * weight).
-        //  weight (double) - The customer weight in pounds, parsed from txtWeight.
-        //
-        // NOTES:
-        //  This method does not reject negative measurements, a negative square-root argument,
-        //    a zero denominator, or non-finite values.
+        //  numerator (double) - The top portion of the provided formula.
+        //  weight (double) - The customer weight in pounds, parsed from txtWeight.        
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
@@ -237,11 +225,11 @@ namespace ChargeEm
         {
             riskFactor = 0;
 
-            if(TryGetDoubleFromTextBox_DisplayError(txtAge, out double age) == false)
+            if(TryGetDoubleFromTextBox_DisplayError(txtAge, out double age, false) == false)
                 return false;
-            if(TryGetDoubleFromTextBox_DisplayError(txtHeight, out double height) == false)
-                return false;
-            if(TryGetDoubleFromTextBox_DisplayError(txtWeight, out double weight) == false)
+            if(TryGetDoubleFromTextBox_DisplayError(txtHeight, out double height, false) == false || height <= 0)
+                return false;            
+            if(TryGetDoubleFromTextBox_DisplayError(txtWeight, out double weight, false) == false)
                 return false;
 
             // note that the following formula was provided per the specifications
@@ -252,7 +240,6 @@ namespace ChargeEm
                 return false;
 
             riskFactor = numerator / denominator;
-
             return true;
         }
 
@@ -263,17 +250,15 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Attempt to parse the specified text box as a double and highlight that text box if
-        //    parsing fails.
+        //  Attempt to parse the specified text box as a double and highlight that text box upon fail
         //
         // PARAMETERS LIST (in Parameter Order):
+        //  allowNegative (bool) - True to accept negative values. False to reject them.
         //  someTextBox (TextBox) - The input control whose Text property will be parsed.
-        //  value (out double) - Receives the parsed value on success or zero when parsing
-        //    fails.
+        //  value (out double) - Stores the parsed value on success. Set to 0 upon fail
         //
         // RETURNS:
-        //  bool - True if double.TryParse succeeds; otherwise false after displaying an input
-        //    warning.
+        //  bool - True if parsing succeeds and the value is within the allowed range. False otherwise.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
         //  (None)
@@ -281,11 +266,13 @@ namespace ChargeEm
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
         // Millershaski 06 Sep 2026 	Initial Version
-        bool TryGetDoubleFromTextBox_DisplayError(TextBox someTextBox, out double value)
+        bool TryGetDoubleFromTextBox_DisplayError(TextBox someTextBox, out double value, bool allowNegative)
         {
             if(TryGetDoubleFromTextBox(someTextBox, out value) == true)
-                return true;
-
+            {
+                if(allowNegative == true || value > 0)              
+                    return true;
+            }
             DisplayInputError(someTextBox);
             return false;
         }
@@ -329,24 +316,18 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Attempt to convert the text box contents to a double using the default parsing rules
-        //    and current culture. This helper does not display an error or enforce a numeric
-        //    range.
+        //  Attempt to convert the text box contents to a double (default culture).
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  someTextBox (TextBox) - The input control containing the numeric text.
-        //  value (out double) - Receives the parsed number on success or zero when parsing
-        //    fails.
+        //  someTextBox (TextBox) - The TextBox containing the numeric text.
+        //  value (out double) - Stores the parsed number on success. Stores zero upon fail.
         //
         // RETURNS:
         //  bool - The success or failure result returned by double.TryParse.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
         //  (None)
-        //
-        // NOTES:
-        //  Parsing success alone does not reject negative values, NaN, or infinity.
-        //
+        // 
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
         // Millershaski 06 Sep 2026 	Initial Version
@@ -362,34 +343,25 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Normalize the risk-factor magnitude when necessary, then apply the assigned pricing
-        //    formula to calculate the premium charged per dollar of policy coverage.
+        //  Calculates the per-dollar coverage multiplier based on the normalized risk factor. The formula is (10.1 - absolute normalized risk factor) / 10.
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  riskFactor (double) - The computed risk factor. It is passed by value, so
-        //    normalization changes only this method's copy.
+        //  riskFactor (double) - The previously calculated risk factor.
         //
         // RETURNS:
-        //  double - The per-dollar coverage multiplier (10.1 - absolute normalized risk factor)
-        //    / 10.
+        //  double - The per-dollar coverage multiplier 
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  (None)
-        //
-        // NOTES:
-        //  An original risk factor of 10 or -10 is used directly. If the original magnitude
-        //    exceeds 10, repeated division continues until the magnitude is below 10.
-        //  This routine expects a finite risk factor. Infinity would keep the normalization
-        //    loop running, while NaN would propagate to the returned value.
+        //  (None)        
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
         // Millershaski 06 Sep 2026 	Initial Version
         double CalculateCostPerCoverage(double riskFactor)
         {
-            if(Math.Abs(riskFactor) > 10.0)
+            if(Math.Abs(riskFactor) > 10.0) // note that a riskFactor of Abs(10.0) will not be divided
             {
-                // Get the leftmost digit and use it as the riskFactor
+                // Divide until only 1 digit remains (per specification)
                 while(Math.Abs(riskFactor) >= 10)
                 {
                     riskFactor /= 10;
@@ -447,20 +419,15 @@ namespace ChargeEm
             lblRiskCategory.Text = GetRiskCategoryLabel(riskFactor);
             lblCostPerThousand.Text = (costPerCoverage * 1000).ToString("C2"); // note that it's displayed to the user as "per 1000" so we multiply by 1000 to get the correct value to display
 
-            if(TryGetCoverageAmount(out double coverageAmount) == true)
-                lblCoverageAmount.Text = coverageAmount.ToString("C2");
-            else
-                lblCoverageAmount.Text = "Invalid Coverage Amount";
+            lblTotalAnnualPremium.Text = "Invalid Data"; // default to an error message in case the coverage or discount calculations fail
+            if(TryRefreshCoverageAmount(out double coverageAmount) == false)
+                return;
 
-            if(TryCalculateInitialAnnualPremium(coverageAmount, costPerCoverage, out double annualPremium) == true)
-                lblInitialAnnualPremium.Text = annualPremium.ToString("C2");
-            else
-                lblInitialAnnualPremium.Text = "Invalid Coverage Amount";
+            if(TryRefreshInitialAnnualPremium(coverageAmount, costPerCoverage, out double annualPremium) == false)
+                return;
 
-            if(TryCalculateDiscountAmount(annualPremium, out double discountAmount) == false)
-                lblDiscountAmount.Text = "Invalid Discount Amount";
-            else
-                lblDiscountAmount.Text = discountAmount.ToString("C2");
+            if(TryRefreshDiscountAmount(annualPremium, out double discountAmount) == false)
+                return;
 
             double premiumAfterDiscount = annualPremium - discountAmount;
             lblPremiumAfterDiscount.Text = premiumAfterDiscount.ToString("C2");
@@ -471,7 +438,7 @@ namespace ChargeEm
             double totalAnnualPremium = premiumAfterDiscount + salesTaxAmount;
             lblTotalAnnualPremium.Text = totalAnnualPremium.ToString("C2");
         }
-
+                
 
 
         // METHOD NAME: GetCustomerName
@@ -543,6 +510,52 @@ namespace ChargeEm
                 return "Safe";
             else
                 return "Unsafe";
+        }
+
+
+
+        bool TryRefreshCoverageAmount(out double coverageAmount)
+        {
+            if(TryGetCoverageAmount(out coverageAmount) == true)
+            {
+                lblCoverageAmount.Text = coverageAmount.ToString("C2");
+                return true;
+            }
+            else
+            {
+                lblCoverageAmount.Text = "Invalid Coverage Amount";
+                return false;
+            }
+        }
+
+
+        bool TryRefreshInitialAnnualPremium(double coverageAmount, double costPerCoverage, out double annualPremium)
+        {
+            if(TryCalculateInitialAnnualPremium(coverageAmount, costPerCoverage, out annualPremium) == true)
+            {
+                lblInitialAnnualPremium.Text = annualPremium.ToString("C2");
+                return true;
+            }
+            else
+            {
+                lblInitialAnnualPremium.Text = "Invalid Coverage Amount";
+                return false;
+            }
+        }
+
+
+        bool TryRefreshDiscountAmount(double annualPremium, out double discountAmount)
+        {
+            if(TryCalculateDiscountAmount(annualPremium, out discountAmount) == true)
+            {
+                lblDiscountAmount.Text = discountAmount.ToString("C2");
+                return true;
+            }
+            else
+            {
+                lblDiscountAmount.Text = "Invalid Discount Amount";
+                return false;
+            }
         }
 
 

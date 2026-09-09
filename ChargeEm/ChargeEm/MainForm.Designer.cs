@@ -68,9 +68,6 @@ namespace ChargeEm
             txtPercentageDiscount = new TextBox();
             lblFlatDiscountCaption = new Label();
             txtFlatDiscount = new TextBox();
-            pnlValidation = new Panel();
-            lblValidationHeading = new Label();
-            lblValidationMessage = new Label();
             pnlQuote = new Panel();
             lblQuoteSection = new Label();
             lblPreparedForCaption = new Label();
@@ -113,7 +110,6 @@ namespace ChargeEm
             pnlCoverage.SuspendLayout();
             pnlDiscountOptions.SuspendLayout();
             pnlDiscountAmountsLayout.SuspendLayout();
-            pnlValidation.SuspendLayout();
             pnlQuote.SuspendLayout();
             pnlQuotedCoverageLayout.SuspendLayout();
             pnlRiskLayout.SuspendLayout();
@@ -168,11 +164,11 @@ namespace ChargeEm
             // 
             lblCompanySubtitle.Font = new Font("Segoe UI", 9F);
             lblCompanySubtitle.ForeColor = Color.FromArgb(214, 228, 240);
-            lblCompanySubtitle.Location = new Point(27, 48);
+            lblCompanySubtitle.Location = new Point(32, 48);
             lblCompanySubtitle.Name = "lblCompanySubtitle";
             lblCompanySubtitle.Size = new Size(360, 20);
             lblCompanySubtitle.TabIndex = 1;
-            lblCompanySubtitle.Text = "Life Insurance Company";
+            lblCompanySubtitle.Text = "Always There";
             lblCompanySubtitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlBody
@@ -213,7 +209,6 @@ namespace ChargeEm
             pnlInputLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             pnlInputLayout.Controls.Add(pnlCustomer, 0, 0);
             pnlInputLayout.Controls.Add(pnlCoverage, 0, 1);
-            pnlInputLayout.Controls.Add(pnlValidation, 0, 2);
             pnlInputLayout.Dock = DockStyle.Fill;
             pnlInputLayout.Location = new Point(0, 0);
             pnlInputLayout.Margin = new Padding(0);
@@ -639,42 +634,6 @@ namespace ChargeEm
             txtFlatDiscount.Size = new Size(261, 25);
             txtFlatDiscount.TabIndex = 1;
             // 
-            // pnlValidation
-            // 
-            pnlValidation.BackColor = Color.FromArgb(255, 242, 240);
-            pnlValidation.BorderStyle = BorderStyle.FixedSingle;
-            pnlValidation.Controls.Add(lblValidationHeading);
-            pnlValidation.Controls.Add(lblValidationMessage);
-            pnlValidation.Dock = DockStyle.Fill;
-            pnlValidation.Location = new Point(0, 512);
-            pnlValidation.Margin = new Padding(0);
-            pnlValidation.Name = "pnlValidation";
-            pnlValidation.Size = new Size(568, 84);
-            pnlValidation.TabIndex = 2;
-            pnlValidation.Visible = false;
-            // 
-            // lblValidationHeading
-            // 
-            lblValidationHeading.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblValidationHeading.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblValidationHeading.ForeColor = Color.FromArgb(157, 48, 37);
-            lblValidationHeading.Location = new Point(14, 9);
-            lblValidationHeading.Name = "lblValidationHeading";
-            lblValidationHeading.Size = new Size(536, 20);
-            lblValidationHeading.TabIndex = 0;
-            lblValidationHeading.Text = "Please review the entered details.";
-            lblValidationHeading.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblValidationMessage
-            // 
-            lblValidationMessage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblValidationMessage.Font = new Font("Segoe UI", 9F);
-            lblValidationMessage.ForeColor = Color.FromArgb(157, 48, 37);
-            lblValidationMessage.Location = new Point(14, 33);
-            lblValidationMessage.Name = "lblValidationMessage";
-            lblValidationMessage.Size = new Size(536, 40);
-            lblValidationMessage.TabIndex = 1;
-            // 
             // pnlQuote
             // 
             pnlQuote.BackColor = Color.White;
@@ -816,7 +775,7 @@ namespace ChargeEm
             lblRiskCategoryCaption.Name = "lblRiskCategoryCaption";
             lblRiskCategoryCaption.Size = new Size(204, 20);
             lblRiskCategoryCaption.TabIndex = 1;
-            lblRiskCategoryCaption.Text = "Safe / unsafe";
+            lblRiskCategoryCaption.Text = "Assessment";
             lblRiskCategoryCaption.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblRiskFactor
@@ -1129,7 +1088,6 @@ namespace ChargeEm
             pnlDiscountOptions.PerformLayout();
             pnlDiscountAmountsLayout.ResumeLayout(false);
             pnlDiscountAmountsLayout.PerformLayout();
-            pnlValidation.ResumeLayout(false);
             pnlQuote.ResumeLayout(false);
             pnlQuotedCoverageLayout.ResumeLayout(false);
             pnlRiskLayout.ResumeLayout(false);
@@ -1179,9 +1137,6 @@ namespace ChargeEm
         private TextBox txtPercentageDiscount;
         private Label lblFlatDiscountCaption;
         private TextBox txtFlatDiscount;
-        private Panel pnlValidation;
-        private Label lblValidationHeading;
-        private Label lblValidationMessage;
         private Panel pnlQuote;
         private Label lblQuoteSection;
         private Label lblPreparedForCaption;
