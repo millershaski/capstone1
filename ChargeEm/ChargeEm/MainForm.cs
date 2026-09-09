@@ -45,7 +45,7 @@ namespace ChargeEm
         //  (None)
         //
         // RETURNS:
-        //  (Nothing; constructors have no explicit return value.)
+        //  (Nothing)
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
         //  (None)
@@ -149,6 +149,7 @@ namespace ChargeEm
         void OnGenerateQuoteClick(object? sender, EventArgs e)
         {
             ClearAllOutput(); // This method is called before generating a new quote to ensure that previous output is not incorrectly associated with the new quote.
+            lblTotalAnnualPremium.Text = "Invalid Data"; // default to an error message in case the coverage or discount calculations fail
 
             if(TryCalculateRiskFactor(out double riskFactor) == true)
             {
@@ -405,7 +406,6 @@ namespace ChargeEm
             lblRiskCategory.Text = GetRiskCategoryLabel(riskFactor);
             lblCostPerThousand.Text = (costPerCoverage * 1000).ToString("C2"); // note that it's displayed to the user as "per 1000" so we multiply by 1000 to get the correct value to display
 
-            lblTotalAnnualPremium.Text = "Invalid Data"; // default to an error message in case the coverage or discount calculations fail
             if(TryRefreshCoverageAmount(out double coverageAmount) == false)
                 return;
 
