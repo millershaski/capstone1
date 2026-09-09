@@ -1,7 +1,7 @@
 // FILENAME: Program.cs
 //
 // WRITTEN BY: Tyler J. Millershaski
-// DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+// DATE CREATED: 06 Sep 2026
 //
 // PART OF PROJECT: ChargeEm
 //
@@ -31,8 +31,8 @@
 //   (None)
 //
 // MODIFICATION HISTORY:
-// WHO          WHEN            WHAT
-// (SEE VERSION CONTROL)
+// WHO     		WHEN         	WHAT
+// Millershaski 06 Sep 2026 	Initial Version
 namespace ChargeEm
 {
     internal static class Program
@@ -57,12 +57,10 @@ namespace ChargeEm
         //   (None)
         //  
         // MODIFICATION HISTORY:
-        // WHO   WHEN   WHAT
-        // --- -------- -------------------------------------------------
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
         }
