@@ -9,7 +9,7 @@
 //   The purpose of this project is to provide a simple and easy-to-use application for generating quotes for charging services. It allows users to input their service details and receive a quote based on the provided information.
 //
 // FILE PURPOSE:
-//   The purpose of this file is to define the MainForm class, which represents the main user interface of the ChargeEm application. It contains event handlers for generating quotes and clearing input fields.
+//   This is the entry point for the application start up.
 //
 // COMPILATION NOTES:
 //   This project compiled normally in Visual Studio 2022 with .NET 6.0 SDK installed. It may require additional dependencies or configurations to compile successfully in other environments.
