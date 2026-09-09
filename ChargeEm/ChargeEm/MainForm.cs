@@ -423,9 +423,7 @@ namespace ChargeEm
             if(TryRefreshCoverageAmount(out double coverageAmount) == false)
                 return;
 
-            if(TryRefreshInitialAnnualPremium(coverageAmount, costPerCoverage, out double annualPremium) == false)
-                return;
-
+            RefreshInitialAnnualPremium(coverageAmount, costPerCoverage, out double annualPremium);
             if(TryRefreshDiscountAmount(annualPremium, out double discountAmount) == false)
                 return;
 
@@ -529,19 +527,13 @@ namespace ChargeEm
         }
 
 
-        bool TryRefreshInitialAnnualPremium(double coverageAmount, double costPerCoverage, out double annualPremium)
+
+        void RefreshInitialAnnualPremium(double coverageAmount, double costPerCoverage, out double annualPremium)
         {
-            if(TryCalculateInitialAnnualPremium(coverageAmount, costPerCoverage, out annualPremium) == true)
-            {
-                lblInitialAnnualPremium.Text = annualPremium.ToString("C2");
-                return true;
-            }
-            else
-            {
-                lblInitialAnnualPremium.Text = "Invalid Coverage Amount";
-                return false;
-            }
+            annualPremium = coverageAmount * costPerCoverage;
+            lblInitialAnnualPremium.Text = annualPremium.ToString("C2");
         }
+
 
 
         bool TryRefreshDiscountAmount(double annualPremium, out double discountAmount)
@@ -593,40 +585,6 @@ namespace ChargeEm
                 DisplayInputError(txtCoverageAmount);
                 return false;
             }
-            return true;
-        }
-
-
-
-        // METHOD NAME: TryCalculateInitialAnnualPremium
-        // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026
-        //
-        // METHOD PURPOSE:
-        //  Multiply the requested coverage by the per-dollar coverage multiplier to obtain the
-        //    annual premium before discounts and sales tax.
-        //
-        // PARAMETERS LIST (in Parameter Order):
-        //  coverageAmount (double) - The requested policy coverage amount.
-        //  costPerCoverage (double) - The premium multiplier for each dollar of coverage.
-        //  annualPremium (out double) - Receives coverageAmount multiplied by costPerCoverage.
-        //
-        // RETURNS:
-        //  bool - Always true in the current implementation.
-        //
-        // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  (None)
-        //
-        // NOTES:
-        //  Despite the Try prefix, this method performs no validation and has no false-return
-        //    path.
-        //
-        // MODIFICATION HISTORY:
-        // WHO     		WHEN         	WHAT
-        // Millershaski 06 Sep 2026 	Initial Version
-        bool TryCalculateInitialAnnualPremium(double coverageAmount, double costPerCoverage, out double annualPremium)
-        {
-            annualPremium = coverageAmount * costPerCoverage;
             return true;
         }
 
