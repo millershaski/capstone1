@@ -378,36 +378,22 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Fill the quote labels with the customer name, original risk factor, risk category,
-        //    cost per $1,000, coverage amount, premium, discount, sales tax, and final annual
-        //    total.
+        //  Display the customer details and calculated quote amounts. Stop if any coverage, premium, or discount refresh fails.
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  riskFactor (double) - The original calculated risk factor to display and classify.
-        //  costPerCoverage (double) - The premium multiplier for each dollar of policy
-        //    coverage.
+        //  riskFactor (double) - The original calculated risk factor to display.
+        //  costPerCoverage (double) - The multiplier per dollar of policy coverage.
         //
         // RETURNS:
         //  (Nothing; void.)
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  annualPremium (double) - The initial annual premium before any discount or sales
-        //    tax.
-        //  coverageAmount (double) - The requested policy coverage, or zero if the coverage
-        //    helper rejects the input.
-        //  discountAmount (double) - The dollar discount returned by the selected discount
-        //    helper; zero on a rejected discount input.
-        //  premiumAfterDiscount (double) - The initial annual premium minus the discount
-        //    amount.
-        //  salesTaxAmount (double) - The configured sales tax applied to the premium after
-        //    discount.
-        //  totalAnnualPremium (double) - The premium after discount plus its sales tax.
-        //
-        // NOTES:
-        //  Failed coverage or discount checks update the corresponding error label, but this
-        //    method continues computing the remaining amounts using the helpers' out values.
-        //  F2 displays two decimal places; C2 displays currency with two decimal places.
-        //    Formatting does not round the stored calculation variables.
+        //  annualPremium (double) - The annual premium before discounts and sales tax.
+        //  coverageAmount (double) - The requested policy coverage amount.
+        //  discountAmount (double) - The selected discount in dollars.
+        //  premiumAfterDiscount (double) - The annual premium minus the discount amount.
+        //  salesTaxAmount (double) - The sales tax on the premium after discount.
+        //  totalAnnualPremium (double) - The premium after discount plus sales tax.
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
@@ -436,7 +422,7 @@ namespace ChargeEm
             double totalAnnualPremium = premiumAfterDiscount + salesTaxAmount;
             lblTotalAnnualPremium.Text = totalAnnualPremium.ToString("C2");
         }
-                
+
 
 
         // METHOD NAME: GetCustomerName
@@ -444,22 +430,16 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Build the displayed customer name from the first-name and last-name inputs, trimming
-        //    whitespace from the beginning and end of the combined text.
+        //  Returns the full customer name from the first name, middle initial, and last name.
         //
         // PARAMETERS LIST (in Parameter Order):
         //  (None)
         //
         // RETURNS:
-        //  string - "(No Name Provided)" if both inputs are null or empty; otherwise the
-        //    trimmed first name, a separating space, and last name.
+        //  string - "(No Name Provided)" if the first and last names are blank. Otherwise, the full name.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  (None)
-        //
-        // NOTES:
-        //  Only the first and last name fields are used. Whitespace-only entries are not
-        //    treated as empty by the initial IsNullOrEmpty checks.
+        //  fullName (string) - The combined customer name before the final trim.
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
@@ -487,14 +467,13 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Choose the text label used to describe the calculated risk factor.
+        //  Get the "safe" or "unsafe label for the calculated risk factor.
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  riskFactor (double) - The original risk-factor value to classify.
+        //  riskFactor (double) - The calculated risk factor.
         //
         // RETURNS:
-        //  string - "Safe" when riskFactor is greater than or equal to zero; "Unsafe"
-        //    otherwise.
+        //  string - "Safe" if riskFactor is greater than or equal to zero. "Unsafe" otherwise.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
         //  (None)
@@ -512,6 +491,26 @@ namespace ChargeEm
 
 
 
+        // METHOD NAME: TryRefreshCoverageAmount
+        // WRITTEN BY: Tyler J. Millershaski
+        // DATE CREATED: 06 Sep 2026
+        //
+        // METHOD PURPOSE:
+        //  Attempt to read the policy coverage amount and display it as currency.
+        //    Displays an error message upon fail.
+        //
+        // PARAMETERS LIST (in Parameter Order):
+        //  coverageAmount (out double) - Stores the coverage amount on success. Set to zero upon fail.
+        //
+        // RETURNS:
+        //  bool - True if the coverage input is accepted. False otherwise.
+        //
+        // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
+        //  (None)
+        //
+        // MODIFICATION HISTORY:
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryRefreshCoverageAmount(out double coverageAmount)
         {
             if(TryGetCoverageAmount(out coverageAmount) == true)
@@ -528,6 +527,27 @@ namespace ChargeEm
 
 
 
+        // METHOD NAME: TryRefreshInitialAnnualPremium
+        // WRITTEN BY: Tyler J. Millershaski
+        // DATE CREATED: 06 Sep 2026
+        //
+        // METHOD PURPOSE:
+        //  Calculates the initial annual premium and display it as currency.
+        //
+        // PARAMETERS LIST (in Parameter Order):
+        //  coverageAmount (double) - The requested policy coverage amount.
+        //  costPerCoverage (double) - The multiplier per dollar of policy coverage.
+        //  annualPremium (out double) - Stores coverageAmount multiplied by costPerCoverage.
+        //
+        // RETURNS:
+        //  (Nothing; void.)
+        //
+        // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
+        //  (None)
+        //
+        // MODIFICATION HISTORY:
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         void RefreshInitialAnnualPremium(double coverageAmount, double costPerCoverage, out double annualPremium)
         {
             annualPremium = coverageAmount * costPerCoverage;
@@ -536,6 +556,27 @@ namespace ChargeEm
 
 
 
+        // METHOD NAME: TryRefreshDiscountAmount
+        // WRITTEN BY: Tyler J. Millershaski
+        // DATE CREATED: 06 Sep 2026
+        //
+        // METHOD PURPOSE:
+        //  Attempt to calculate the selected discount and display it as currency.
+        //    Display an error message upon fail.
+        //
+        // PARAMETERS LIST (in Parameter Order):
+        //  annualPremium (double) - The annual premium before discounts and sales tax.
+        //  discountAmount (out double) - Stores the discount in dollars. Set to zero for no discount or upon fail.
+        //
+        // RETURNS:
+        //  bool - True if the discount calculation succeeds or no discount is selected. False otherwise.
+        //
+        // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
+        //  (None)
+        //
+        // MODIFICATION HISTORY:
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryRefreshDiscountAmount(double annualPremium, out double discountAmount)
         {
             if(TryCalculateDiscountAmount(annualPremium, out discountAmount) == true)
@@ -557,29 +598,24 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Parse the policy coverage input and reject values that compare as zero or negative.
-        //    Highlight the coverage input when it is rejected.
+        //  Attempt to parse the policy coverage amount.
+        //    Reject zero or negative values and highlight the TextBox upon fail.
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  coverageAmount (out double) - Receives the parsed coverage value on success or zero
-        //    on failure.
+        //  coverageAmount (out double) - Stores the parsed coverage amount on success. Set to zero upon fail.
         //
         // RETURNS:
-        //  bool - False if parsing fails or coverageAmount is <= 0; true otherwise.
+        //  bool - False if parsing fails or the coverage amount is less than or equal to zero. True otherwise.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
         //  (None)
-        //
-        // NOTES:
-        //  There is no separate finite-number check. NaN and positive infinity are not rejected
-        //    by the <= 0 comparison.
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
         // Millershaski 06 Sep 2026 	Initial Version
         bool TryGetCoverageAmount(out double coverageAmount)
         {
-            if(TryGetDoubleFromTextBox(txtCoverageAmount, out coverageAmount) == false || coverageAmount <= 0)
+            if(TryGetDoubleFromTextBox(txtCoverageAmount, out coverageAmount) == false || coverageAmount <= 0) // note that the 0 fails and not just negative values
             {
                 coverageAmount = 0;
                 DisplayInputError(txtCoverageAmount);
@@ -595,21 +631,18 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Select the appropriate percentage or flat-dollar discount calculation according to
-        //    the radio buttons. Keep the discount at zero when no discount is selected.
+        //  Calculate the percentage or flat dollar discount selected by the radio buttons.
+        //    Use zero when no discount is selected.
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  annualPremium (double) - The initial annual premium before discounts or sales tax.
-        //  discountAmount (out double) - Receives the selected dollar discount; remains zero
-        //    for no discount or a rejected discount input.
+        //  annualPremium (double) - The annual premium before discounts and sales tax.
+        //  discountAmount (out double) - Stores the discount in dollars. Set to zero for no discount or upon fail.
         //
         // RETURNS:
-        //  bool - True for no discount or a successful selected discount calculation; false if
-        //    the selected discount helper rejects its input.
+        //  bool - False if the selected discount input is rejected. True otherwise.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  discountType (int) - The selection code returned by GetDiscountType: 0 = none, 1 =
-        //    percentage, 2 = flat amount.
+        //  discountType (int) - The selected discount: 0 = none, 1 = percentage, 2 = flat amount.
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
@@ -634,22 +667,16 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Read the percentage and flat-discount radio buttons and return the code identifying
-        //    the selected discount calculation.
+        //  Get the selected discount type from the radio buttons and converts it to an integer.
         //
         // PARAMETERS LIST (in Parameter Order):
         //  (None)
         //
         // RETURNS:
-        //  int - 1 for percentage discount, 2 for flat discount, or 0 when neither of those
-        //    radio buttons is checked.
+        //  int - 1 for a percentage discount, 2 for a flat discount, or 0 for no discount.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
         //  (None)
-        //
-        // NOTES:
-        //  The percentage option is checked first and therefore takes precedence if both radio
-        //    buttons are checked.
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
@@ -671,26 +698,18 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Parse the percentage input, reject values below zero or above 100, and convert an
-        //    accepted percentage into a dollar discount on the initial annual premium.
+        //  Attempt to parse the percentage discount and calculate its dollar amount.
+        //    Reject percentages below 0 or above 100 and highlight the TextBox upon fail.
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  annualPremium (double) - The initial annual premium to which the percentage discount
-        //    is applied.
-        //  discountAmount (out double) - Receives the calculated dollar discount on success or
-        //    zero when the input is rejected.
+        //  annualPremium (double) - The annual premium before discounts and sales tax.
+        //  discountAmount (out double) - Stores the calculated dollar discount on success. Set to zero upon fail.
         //
         // RETURNS:
-        //  bool - False if parsing fails or the percentage compares below 0 or above 100; true
-        //    otherwise.
+        //  bool - False if parsing fails or the percentage is below 0 or above 100. True otherwise.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  percentageDiscount (double) - The entered percentage, where 5 means a five-percent
-        //    discount.
-        //
-        // NOTES:
-        //  For finite inputs, the accepted range is 0 through 100 inclusive. There is no
-        //    explicit NaN check.
+        //  percentageDiscount (double) - The entered discount percentage (5 means 5%).
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
@@ -715,25 +734,17 @@ namespace ChargeEm
         // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
-        //  Parse the flat-dollar discount input, reject negative values, and cap the accepted
-        //    discount at the annual premium using Math.Min.
+        //  Attempt to parse the flat dollar discount. Reject negative values and highlight the TextBox upon fail.
         //
         // PARAMETERS LIST (in Parameter Order):
-        //  annualPremium (double) - The initial annual premium and maximum discount for a
-        //    normal nonnegative premium.
-        //  discountAmount (out double) - Receives the smaller of the entered flat discount and
-        //    the annual premium; remains zero on rejected input.
+        //  annualPremium (double) - The annual premium before discounts and sales tax, also used as the maximum discount.
+        //  discountAmount (out double) - Stores the smaller of the entered discount and the annual premium. Set to zero upon fail.
         //
         // RETURNS:
-        //  bool - False if parsing fails or the flat discount compares below zero; true
-        //    otherwise.
+        //  bool - False if parsing fails or the flat discount is below zero. True otherwise.
         //
         // LOCAL VARIABLE DICTIONARY (in Alphabetical Order):
-        //  flatDiscount (double) - The requested flat-dollar discount before it is capped at
-        //    the annual premium.
-        //
-        // NOTES:
-        //  This method does not separately validate annualPremium or reject non-finite inputs.
+        //  flatDiscount (double) - The entered flat dollar discount before applying the premium limit.
         //
         // MODIFICATION HISTORY:
         // WHO     		WHEN         	WHAT
