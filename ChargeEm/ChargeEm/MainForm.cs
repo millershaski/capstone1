@@ -1,6 +1,6 @@
 // FILENAME: MainForm.cs
 // WRITTEN BY: Tyler J. Millershaski
-// DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+// DATE CREATED: 06 Sep 2026 
 // 
 // PART OF PROJECT: ChargeEm
 // 
@@ -23,10 +23,8 @@
 //  designer partial class. The class constant is documented separately above.
 //
 // MODIFICATION HISTORY:
-// WHO     WHEN         WHAT
-// Codex   08 Sep 2026  Added documentation in the required format and corrected
-//                      descriptions to match the existing code. Executable
-//                      statements, method signatures, and identifiers unchanged.
+// WHO              WHEN         WHAT
+// Millershaski   06 Sep 2026  Initial Version
 // --- -------- -------------------------------------------------
 namespace ChargeEm
 {
@@ -37,7 +35,7 @@ namespace ChargeEm
 
         // METHOD NAME: MainForm (CONSTRUCTOR)
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Construct the main form and initialize the controls and layout defined in the
@@ -53,8 +51,8 @@ namespace ChargeEm
         //  (None)
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         public MainForm()
         {
             InitializeComponent();
@@ -64,7 +62,7 @@ namespace ChargeEm
 
         // METHOD NAME: OnLoad
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Run the inherited form-load behavior, then connect each numeric input text box to
@@ -80,8 +78,8 @@ namespace ChargeEm
         //  (None)
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -99,7 +97,7 @@ namespace ChargeEm
 
         // METHOD NAME: ResetWarning
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Restore the sending text box to a white background when it raises a KeyPress event.
@@ -119,8 +117,8 @@ namespace ChargeEm
         //    box.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         void ResetWarning(object? sender, KeyPressEventArgs e)
         {
             if(sender != null && sender is TextBox textBox)
@@ -131,7 +129,7 @@ namespace ChargeEm
 
         // METHOD NAME: OnGenerateQuoteClick
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Clear the previous quote, attempt to calculate the customer risk factor, and
@@ -151,8 +149,8 @@ namespace ChargeEm
         //    TryCalculateRiskFactor.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         void OnGenerateQuoteClick(object? sender, EventArgs e)
         {
             ClearAllOutput(); // This method is called before generating a new quote to ensure that previous output is not incorrectly associated with the new quote.
@@ -168,7 +166,7 @@ namespace ChargeEm
 
         // METHOD NAME: ClearAllOutput
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Replace every quote output value with a dash so that previous quote details are not
@@ -185,8 +183,8 @@ namespace ChargeEm
         //    labels.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         void ClearAllOutput()
         {
             string clearString = "-"; // A non-empty clear string tends to be better than an empty one.
@@ -207,7 +205,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryCalculateRiskFactor
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Parse the age, height, and weight inputs, then evaluate the risk-factor formula
@@ -233,8 +231,8 @@ namespace ChargeEm
         //    a zero denominator, or non-finite values.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryCalculateRiskFactor(out double riskFactor)
         {
             riskFactor = 0;
@@ -262,7 +260,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetDoubleFromTextBox_DisplayError
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Attempt to parse the specified text box as a double and highlight that text box if
@@ -281,14 +279,14 @@ namespace ChargeEm
         //  (None)
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryGetDoubleFromTextBox_DisplayError(TextBox someTextBox, out double value)
         {
             if(TryGetDoubleFromTextBox(someTextBox, out value) == true)
                 return true;
 
-            DisplayInputError(someTextBox); 
+            DisplayInputError(someTextBox);
             return false;
         }
 
@@ -296,7 +294,7 @@ namespace ChargeEm
 
         // METHOD NAME: DisplayInputError
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Mark an input text box with a light-pink background and request keyboard focus so
@@ -316,8 +314,8 @@ namespace ChargeEm
         //    KeyPress event.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         void DisplayInputError(TextBox someTextBox)
         {
             someTextBox.BackColor = Color.LightPink;
@@ -328,7 +326,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetDoubleFromTextBox
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Attempt to convert the text box contents to a double using the default parsing rules
@@ -350,18 +348,18 @@ namespace ChargeEm
         //  Parsing success alone does not reject negative values, NaN, or infinity.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryGetDoubleFromTextBox(TextBox someTextBox, out double value)
         {
-            return double.TryParse(someTextBox.Text, out value);            
+            return double.TryParse(someTextBox.Text, out value);
         }
 
 
 
         // METHOD NAME: CalculateCostPerCoverage
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Normalize the risk-factor magnitude when necessary, then apply the assigned pricing
@@ -385,8 +383,8 @@ namespace ChargeEm
         //    loop running, while NaN would propagate to the returned value.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         double CalculateCostPerCoverage(double riskFactor)
         {
             if(Math.Abs(riskFactor) > 10.0)
@@ -405,7 +403,7 @@ namespace ChargeEm
 
         // METHOD NAME: RefreshOutput
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Fill the quote labels with the customer name, original risk factor, risk category,
@@ -440,8 +438,8 @@ namespace ChargeEm
         //    Formatting does not round the stored calculation variables.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         void RefreshOutput(double riskFactor, double costPerCoverage)
         {
             lblCustomerName.Text = GetCustomerName();
@@ -478,7 +476,7 @@ namespace ChargeEm
 
         // METHOD NAME: GetCustomerName
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Build the displayed customer name from the first-name and last-name inputs, trimming
@@ -499,8 +497,8 @@ namespace ChargeEm
         //    treated as empty by the initial IsNullOrEmpty checks.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         string GetCustomerName()
         {
             if(String.IsNullOrWhiteSpace(txtFirstName.Text) && String.IsNullOrWhiteSpace(txtLastName.Text)) // if both last name and first name are blank, return a default string (even if middle initial is populated)
@@ -521,7 +519,7 @@ namespace ChargeEm
 
         // METHOD NAME: GetRiskCategoryLabel
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Choose the text label used to describe the calculated risk factor.
@@ -537,8 +535,8 @@ namespace ChargeEm
         //  (None)
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         string GetRiskCategoryLabel(double riskFactor)
         {
             if(riskFactor >= 0)
@@ -551,7 +549,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetCoverageAmount
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Parse the policy coverage input and reject values that compare as zero or negative.
@@ -572,8 +570,8 @@ namespace ChargeEm
         //    by the <= 0 comparison.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryGetCoverageAmount(out double coverageAmount)
         {
             if(TryGetDoubleFromTextBox(txtCoverageAmount, out coverageAmount) == false || coverageAmount <= 0)
@@ -589,7 +587,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryCalculateInitialAnnualPremium
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Multiply the requested coverage by the per-dollar coverage multiplier to obtain the
@@ -611,10 +609,10 @@ namespace ChargeEm
         //    path.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryCalculateInitialAnnualPremium(double coverageAmount, double costPerCoverage, out double annualPremium)
-        { 
+        {
             annualPremium = coverageAmount * costPerCoverage;
             return true;
         }
@@ -623,7 +621,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryCalculateDiscountAmount
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Select the appropriate percentage or flat-dollar discount calculation according to
@@ -643,15 +641,15 @@ namespace ChargeEm
         //    percentage, 2 = flat amount.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryCalculateDiscountAmount(double annualPremium, out double discountAmount)
         {
             discountAmount = 0;
 
             int discountType = GetDiscountType();
             if(discountType == 1) // percentage
-                return TryGetPercentageDiscountAmount(annualPremium, out discountAmount);            
+                return TryGetPercentageDiscountAmount(annualPremium, out discountAmount);
             else if(discountType == 2) // flat amount
                 return TryGetFlatDiscountAmount(annualPremium, out discountAmount);
 
@@ -662,7 +660,7 @@ namespace ChargeEm
 
         // METHOD NAME: GetDiscountType
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Read the percentage and flat-discount radio buttons and return the code identifying
@@ -683,8 +681,8 @@ namespace ChargeEm
         //    buttons are checked.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         int GetDiscountType()
         {
             if(rdoPercentageDiscount.Checked == true)
@@ -699,7 +697,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetPercentageDiscountAmount
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Parse the percentage input, reject values below zero or above 100, and convert an
@@ -724,8 +722,8 @@ namespace ChargeEm
         //    explicit NaN check.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryGetPercentageDiscountAmount(double annualPremium, out double discountAmount)
         {
             discountAmount = 0;
@@ -743,7 +741,7 @@ namespace ChargeEm
 
         // METHOD NAME: TryGetFlatDiscountAmount
         // WRITTEN BY: Tyler J. Millershaski
-        // DATE CREATED: 06 Sep 2026 (SEE VERSION CONTROL)
+        // DATE CREATED: 06 Sep 2026
         //
         // METHOD PURPOSE:
         //  Parse the flat-dollar discount input, reject negative values, and cap the accepted
@@ -767,8 +765,8 @@ namespace ChargeEm
         //  This method does not separately validate annualPremium or reject non-finite inputs.
         //
         // MODIFICATION HISTORY:
-        // WHO     WHEN         WHAT
-        // Codex   08 Sep 2026  Documented existing behavior; no code changes.
+        // WHO     		WHEN         	WHAT
+        // Millershaski 06 Sep 2026 	Initial Version
         bool TryGetFlatDiscountAmount(double annualPremium, out double discountAmount)
         {
             discountAmount = 0;
